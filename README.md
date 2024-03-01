@@ -1,3 +1,5 @@
+Rewrite av Bjørnar. 80% på plass.
+
 
 # Navngivings system og kommentarer:
  - alle klasse og mappe navn: camelCase og kebab-case 
