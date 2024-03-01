@@ -1,9 +1,27 @@
 Rewrite av Bjørnar. 80% på plass.
 
 • Opprettet "page" mappe for de forskjellige sidene.
+
 • Søkeside på plass (konsept)
+
 • Database fungerer
+
 • Meny (navbar) autogenererer produktliste basert på databasen
+
+• Alt unødvendig har blitt fjernet.
+
+
+TODO:
+
+Produktkort-visning for resultatsiden (søk).
+
+Dark/light-mode må sees på.
+
+Rabatt/Kampanje må integreres med søkeresultatene (plasseres først på siden).
+
+Login til admin-panel.
+
+
 
 
 # Navngivings system og kommentarer:
