@@ -21,6 +21,8 @@ Rabatt/Kampanje må integreres med søkeresultatene (plasseres først på siden)
 
 Login til admin-panel.
 
+Bilder må sorteres og systematiseres - og bildestøtte må legges til databasen.
+
 
 
 
