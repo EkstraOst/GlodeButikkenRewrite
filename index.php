@@ -41,13 +41,6 @@
 
 
   //DEBUG
-  if (isset($_SESSION['page'])) {
-    echo $_SESSION['page'];
-  }
-  
-  if (isset($_GET['type'])) {
-    echo $_GET['type'];
-  }
   //end DEBUG
 
 ?>

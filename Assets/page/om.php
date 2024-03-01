@@ -63,8 +63,8 @@
               <p> 
                 <h3 class="h3About">Betaling</h3>
                 <ul class="payImg">
-                    <li class="payOption"><img class="imgVipps" src="/Assets/Icons/vipps-logo.jpg" alt="et bilde av Vipps sin logo"/></li>
-                    <li class="payOption"><img class="imgVisa" src="/Assets/Icons/visa-img.jpg" alt="Et bilde av Visa sin Logo"/></li>
+                    <li class="payOption"><img class="imgVipps" src="Assets/Icons/vipps-logo.jpg" alt="et bilde av Vipps sin logo"/></li>
+                    <li class="payOption"><img class="imgVisa" src="Assets/Icons/visa-img.jpg" alt="Et bilde av Visa sin Logo"/></li>
                 </ul>
               </p>
           </div>
@@ -86,8 +86,8 @@
         </section>
 
         <div class="buttonCenter">
-          <button class="buttonAbout" href="/index.html?page=1">Hjem</button>
+          <button class="buttonAbout" href="index.html?page=1">Hjem</button>
           <button class="buttonAbout" href="index.php?type=1&page=2">Produkter</button>
           <!--pc = produkter? - Polly-->
-          <button class="buttonAbout" href="/Sikker_sletting/indexSS.html">Sikker sletting</button>
+          <button class="buttonAbout" href="Sikker_sletting/indexSS.html">Sikker sletting</button>
         </div>

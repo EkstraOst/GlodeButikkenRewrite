@@ -4,13 +4,13 @@
         <div class="navbar">  
         <div class="header-icon">
             <a href="/index.php?page=1">
-                <img class="imgLogo" src="/Assets/Icons/logo_wWhite2.png" alt="left icon">
+                <img class="imgLogo" src="Assets/Icons/logo_wWhite2.png" alt="left icon">
               </a>
         </div>
           <i class='bx bx-menu'></i>    
           <!--Defines the logo-->
-          <div class="logoHeader"><a href="/index.php?page=1">Gløde Data</a></div>
-          <!--Amalie og Trond-Morten sin kode linje: -->
+          <div class="logoHeader"><a href="index.php?page=1">Gløde Data</a></div>
+
           <div class="mode-toggle" onclick="toggleMode()">
             <div class="circle"></div>
           </div>
@@ -71,7 +71,7 @@
           <!--Shopping cart button kodet av Amalie -->
           <button class="shoppingCartButton">
             <a href="/Handlekurv/indexKurv.html">
-              <img class="shoppingCart" src="/Assets/Icons/shopping-cart_Main.png" alt="Shopping Cart">
+              <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Shopping Cart">
             </a>
           </button>
         </div>

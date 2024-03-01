@@ -1,6 +1,6 @@
 <h1 class="main_title">Hvorfor Velge Gløde Butikken?</h1>
       <div class="splashPosition">
-        <img class="imgSplash" src="Assets/Splash2.jpg" alt="Bilde av masse laptoper i butikkhyllen">
+        <img class="imgSplash" src="Assets/img/Splash2.jpg" alt="Bilde av masse laptoper i butikkhyllen">
       </div>
 
       <div class="slide">
@@ -22,11 +22,11 @@
               <p class="pLP">Åpningstider: Alle hverdager 08.00 - 15:00</p>
           </div>
 
-          <button class="btn" id="button"><a class="btnProduct" href="/ProductList/indexPl.html">Se produkter</a></button>
+          <button class="btn" id="button"><a class="btnProduct" href="index.php?page=2&type=0">Se produkter</a></button>
           <!-- above is placeholderlink, Sandra Fix-->
 
         </div>
         <div>
-          <img class="leftImg" src="Assets/Desk1.jpg" alt="Bilde av skranken i Gløde Data Butikken">
+          <img class="leftImg" src="Assets/img/Desk1.jpg" alt="Bilde av skranken i Gløde Data Butikken">
         </div>
       </div>
