@@ -1,5 +1,10 @@
 Rewrite av Bjørnar. 80% på plass.
 
+• Opprettet "page" mappe for de forskjellige sidene.
+• Søkeside på plass (konsept)
+• Database fungerer
+• Meny (navbar) autogenererer produktliste basert på databasen
+
 
 # Navngivings system og kommentarer:
  - alle klasse og mappe navn: camelCase og kebab-case 
