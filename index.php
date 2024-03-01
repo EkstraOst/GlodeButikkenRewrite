@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
     <?php 
       if (isset($_GET['page']) && $_GET['page'] == 3) {
-        echo '<link rel="stylesheet" href="/OMOSSSIDE/CSS/textOmOss.css"/>';
-        echo '<link rel="stylesheet" href="/OMOSSSIDE/CSS/mediaQueryOmOss.css"/>';
+        echo '<link rel="stylesheet" href="Assets/css/textOmOss.css"/>';
+        echo '<link rel="stylesheet" href="Assets/css/mediaQueryOmOss.css"/>';
       }
     ?>
     <script src="Assets/js/script.js" async defer></script>
