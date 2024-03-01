@@ -44,7 +44,7 @@ Superkategori:
       $query = "SELECT DISTINCT kategori FROM PRODUKT";
       if ($result = mysqli_query($con, $query)) {
         while ($row = mysqli_fetch_assoc($result)) {
-          echo '<li><a href="index.php?kategori=' . $row['kategori'] . '">' . $row['kategori'] . '</a></li>'
+          echo '<li><a href="index.php?kategori=' . $row['kategori'] . '">' . $row['kategori'] . '</a></li>';
         }
       }
     ?>

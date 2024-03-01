@@ -1,0 +1,1 @@
+Jeg heter Bjørnar

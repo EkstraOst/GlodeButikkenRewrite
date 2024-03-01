@@ -54,15 +54,15 @@
                         echo "Failed to connect to MySQL: " . mysqli_connect_error();
                         exit();
                     }
-              
+
                     $query = "SELECT DISTINCT kategori FROM PRODUKT";
                     if ($result = mysqli_query($con, $query)) {
                       while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<li><a href="index.php?kategori=' . $row['kategori'] . '">' . $row['kategori'] . '</a></li>'
+                        echo '<li><a href="index.php?kategori=' . $row['kategori'] . '">' . $row['kategori'] . '</a></li>';
                       }
                     }
                   ?>
-              </ul>
+                </ul>
               </li>
 
               <!-- <li>
@@ -73,7 +73,7 @@
                 </ul>
                 ----------------  Midlertidig kommentert ut, da denne tjenesten trolig kommer under produkter i steden -------
               </li> -->
-              <li><a href="/OMOSSSIDE/indexAbout.html">Om Oss</a></li>
+              <li><a href="/OMOSSSIDE/indexAbout.html">Om Oss Ja!</a></li>
               <li><a href="https://glode.no/glode/tilsette/">Kontakt oss</a></li>
             </ul>
             
