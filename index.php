@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="Assets/css/styleLp.css"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
     <link rel="stylesheet" href="Assets/css/textOmOss.css"/>
-    <link rel="stylesheet" href="Assets/css/mediaQueryOmOss.css"/>
-
+    <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <title>Gløde Data</title>
   </head>
 
@@ -25,6 +23,8 @@
     $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : "0";
     $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : "^.*%";
 
+    // === CONTENT ===
+
     //HEADER
     include("Assets/templates/header1.php"); 
 
@@ -38,8 +38,10 @@
       include('Assets/page/hjem.php');
     }
     echo "</body>";
-    
+
     //FOOTER
     include('Assets/templates/footer1.html');
+
+    // === END CONTENT ===
   ?>
 </html>

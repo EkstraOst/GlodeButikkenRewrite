@@ -15,6 +15,9 @@
 
 <!-- Searchbar settes inn her som html-->
 
+
+
+
 <!-- Her kommer resultatene -->
 <?php
     //validate variables
@@ -29,8 +32,6 @@
         $param = $_GET['param'];
     }
 
-
-    
     //type
     if ($type == 0) {
         $query = "SELECT * FROM PRODUKT";

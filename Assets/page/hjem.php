@@ -5,9 +5,9 @@
 
       <div class="slide">
               <!--tenkte vi kan gjøre sån at det slider bytter på paragrafer -->
-          <p class="anim-1 text">Alle våre IKT produkter har fått en gundig gjenomgang før de blir lagt ut for salg</p>
+          <p class="anim-1 text">Alle våre IKT produkter har fått en grundig gjenomgang før de blir lagt ut for salg</p>
           <p class="anim-2 text">Miljøbevisst, det er viktig at vi tar vare på miljøet og gjenbruker brukt IKT utstyr</p>
-          <p class="anim-3 text">GlødeButikken har gunstige  priser  og Rask levering</p>
+          <p class="anim-3 text">GlødeButikken har gunstige  priser og rask levering</p>
 
       </div>
           <!--infomasjon og salg -->
@@ -27,6 +27,6 @@
 
         </div>
         <div>
-          <img class="leftImg" src="Assets/img/Desk1.jpg" alt="Bilde av skranken i Gløde Data Butikken">
+          <img class="leftImg" src="Assets/img/Desk1.jpg" alt="Bilde av skranken i butikken">
         </div>
       </div>
