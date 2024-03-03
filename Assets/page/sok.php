@@ -1,11 +1,11 @@
 <?php
     $overskrift = "Søk etter produkter:";
-    if ($_GET['type'] == '1') {
+    if ($_SESSION['type'] == '1') {
         //Menysøk etter kategori
         $overskrift = $_GET['param'] . ":";
-    } else if ($_GET['type'] == '2') {
+    } else if ($_SESSION['type'] == '2') {
         //Fritekstsøk
-        $overskrift = "Produkter som inneholder '" . $_GET['param'] . "':";
+        $overskrift = "Produkter som inneholder '" . $_SESSION['param'] . "':";
     }
 
     echo "<div class='search-headline'>";

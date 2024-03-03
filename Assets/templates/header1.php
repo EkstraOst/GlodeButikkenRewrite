@@ -33,10 +33,8 @@
               }
 
               $query = "SELECT DISTINCT kategori FROM PRODUKT";
-              $i = 0;
               if ($result = mysqli_query($con, $query)) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                  $i++;
                   echo '<li><a href="index.php?page=2&type=1&param=' . $row['kategori'] . '">' . $row['kategori'] . '</a></li>';
                 }
               }
