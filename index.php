@@ -30,11 +30,20 @@
     include("Assets/templates/header1.php"); 
 
     //SIDEVISNING
+    //default:side 1 - hjem
+    //side 2: søkeside (type=x, param=x, nivaa=?)
+    //side 3: om oss
+    //side 4: produktvisning; type=?, param=x nivaa=4
+    //side 5: vogn.
     echo "<body>";
     if ($_SESSION['page'] == 2) {
       include('Assets/page/sok.php');
     } else if ($_SESSION['page'] == 3) {
       include('Assets/page/om.php');
+    } else if ($_SESSION['page'] == 4) {
+      include('Assets/page/produkt.php');
+    } else if ($_SESSION['page'] == 5) {
+      include('Assets/page/vogn.php');
     } else {
       include('Assets/page/hjem.php');
     }

@@ -8,7 +8,18 @@
   //Finn visningsnivå
   $nivaa = isset($_SESSTION['nivaa']) ? $_SESSION['nivaa'] : 1;
 
-  if ($nivaa == 1) {  }
+  if ($nivaa > 0) { 
+    //alle produkter
+  }
+  if ($nivaa > 1) {
+    //superkategori
+  }
+  if ($nivaa > 2) {
+    //kategori
+  }
+  if ($nivaa > 3) {
+    //produkt
+  }
 
 
   echo "</h2>";
