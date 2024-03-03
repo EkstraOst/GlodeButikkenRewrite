@@ -74,6 +74,9 @@
                 $test = str_replace('%%undertittel%%', $subline, $test);
                 $test = str_replace('%%pris%%', $price, $test);
                 echo $test;
+
+                //NIVAA: index.php?nivaa=4?page=4?pid=x
+
             }
             fclose($handle);
         }

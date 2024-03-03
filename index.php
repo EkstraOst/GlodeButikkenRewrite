@@ -22,6 +22,7 @@
     $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : "0";
     $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : "0";
     $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : "^.*%";
+    $_SESSION['nivaa'] = isset($_GET['nivaa']) ? $_GET['nivaa'] : 1;
 
     // === CONTENT ===
 
