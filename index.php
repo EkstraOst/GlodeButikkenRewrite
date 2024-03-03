@@ -17,7 +17,7 @@
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
 
-    //Start session og set variabler til valg hvis noe er i GET eller default hvis ikke.
+    //Start session og set variabler til valg hvis noe er i _GET eller default hvis ikke.
     session_start();
     $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : "0";
     $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : "0";

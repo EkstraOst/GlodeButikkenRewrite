@@ -51,7 +51,7 @@
       <!--Shopping cart button kodet av Amalie -->
       <button class="shoppingCartButton">
         <a href="/index.php?page=6">
-          <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Shopping Cart">
+          <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Handlevogn">
         </a>
       </button>
     </div>
