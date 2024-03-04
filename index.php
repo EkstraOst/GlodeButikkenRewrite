@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="Assets/css/styleLp.css"/>
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
     <link rel="stylesheet" href="Assets/css/textOmOss.css"/>
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
     <title>Gløde Data</title>
   </head>
 
