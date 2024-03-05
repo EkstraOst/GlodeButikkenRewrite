@@ -1,17 +1,4 @@
-<?php
-    $overskrift = "Søk etter produkter:";
-    if ($_SESSION['type'] == '1') {
-        //Menysøk etter kategori
-        $overskrift = $_GET['param'] . ":";
-    } else if ($_SESSION['type'] == '2') {
-        //Fritekstsøk
-        $overskrift = "Produkter som inneholder '" . $_SESSION['param'] . "':";
-    }
 
-    echo "<div class='search-headline'>";
-    echo $overskrift;
-    echo "</div>";
-?>
 
 <!-- Searchbar settes inn her som html-->
 
@@ -25,21 +12,25 @@
     if (isset($_GET['type'])) {
         $type = $_GET['type'];
     }
-    $query = "";
+    
     //søkeparametre
     $param = 0;
     if (isset($_GET['param'])) {
         $param = $_GET['param'];
     }
-
+    $query = "";
+    echo $type . " " . $param;
     //type
     if ($type == 0) {
         $query = "SELECT * FROM PRODUKT";
     }
     if ($type == 1) {
-        $query = "SELECT * FROM PRODUKT WHERE kategori='" . $param . "'";
+        $query = "SELECT * FROM PRODUKT p WHERE EXISTS (SELECT * FROM KATEGORI s WHERE s.s_kategoriID = " . $param . " AND p.kategoriID = s.kategoriID)" ;
     }
     if ($type == 2) {
+        $query = "SELECT * FROM PRODUKT WHERE kategoriID ='" . $param . "'";
+    }
+    if ($type == 3) {
         $query = "SELECT * FROM PRODUKT WHERE navn REGEXP_LIKE (" . $param . ") UNION SELECT * FROM PRODUKT WHERE info REGEXP_LIKE (". $param . ")";
     }
 

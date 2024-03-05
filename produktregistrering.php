@@ -17,9 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="Assets/bootstrap5/css/bootstrap.css">
-        <script src="Assets/bootstrap5/js/bootstrap.bundle.min.js"></script>
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <style>
             .fjalla-one-regular {
                 font-family: "Fjalla One", sans-serif;
@@ -50,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Failed to connect to MySQL: " . $con->connect_error);
     }
 
-    $stmt = $con->prepare("INSERT INTO PRODUKT(inventar, navn, undertittel, info, kategoriID, pris, bilde_url)  
-                            VALUES (0, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssdds", $navn, $ut, $info, $kat, $pris, $fil);
+    $stmt = $con->prepare("INSERT INTO PRODUKT(inventar, navn, undertittel, info, kategoriID, pris, bilde_url, autosalg)  
+                            VALUES (0, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssddsd", $navn, $ut, $info, $kat, $pris, $fil, $asalg);
 
     $navn = $_POST['pnavn'];
     $ut = $_POST['putittel'];
@@ -60,12 +59,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pris = $_POST['ppris'];
     $kat = $_POST['pkat'];
     $fil = $_POST['pfil'];
+    $asalg = 1;
+    if (isset($_POST['autosalg']) && $_POST['autosalg'] == "0") {
+        $asalg = 0;
+    }
 
-    
+    $simplevalidate = 1;
+    if (strlen($navn) < 4 || $pris <= 0) {
+        $simplevalidate = 0;
+    }
+
+    if (strlen($fil) < 5) {
+        $fil = "produkt_placeholder.png";
+    }
 
     //utfør "query" av database og vis hver av resultatene gjennom printCard-funksjonen
     //i dette tilfellet alle produktene i mockup-databasen (4stk).
-    if ($stmt->execute()) {
+    if ($stmt->execute() && $simplevalidate == 1) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
         echo '    <strong>Suksess!</strong>';
         echo '    <button type="button" class="close" data-dismiss="alert" aria-label="Close">';
@@ -122,11 +132,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ?>
                 </select>
             </div><br>
-            <div class="form-group"><label for="pinfo">Info (bruk gjerne html så det ser bra ut):</label><input id="pinfo" name="pinfo" class="form-control" type="textarea" rows=8></div>
+            <div class="form-group"><label for="pinfo">Info (bruk gjerne html så det ser bra ut):</label><input id="pinfo" name="pinfo" class="form-control" type="textarea" rows="5"></div><br>
+            <div class="form-check">
+                <input class="form-check-input" name="autosalg" type="checkbox" value="0" id="autosalg">
+                <label class="form-check-label" for="autosalg">
+                    Ta kontakt for salg
+                </label>
+            </div>
             <br><br><button type="submit" class="btn btn-primary mb-2">Legg til</button>
         </form>
         </div>
-
-
     </body>
-</html>
+</html> 
