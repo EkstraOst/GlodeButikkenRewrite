@@ -19,9 +19,12 @@ Dark/light-mode må sees på.
 
 Rabatt/Kampanje må integreres med søkeresultatene (plasseres først på siden).
 
-Login til admin-panel.
+Login til admin-panel. (Kan vente)
 
-Bilder må sorteres og systematiseres - og bildestøtte må legges til databasen.
+Bilder må sorteres og systematiseres - og bildestøtte må legges til databasen. (For så vidt gjort)
+
+- Mandag 11.mars skal betaversjon være online.
+
 
 
 

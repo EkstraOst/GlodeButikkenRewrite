@@ -23,7 +23,6 @@
     $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : 0;
     $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : 0;
     $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : "^.*%";
-    $_SESSION['nivaa'] = isset($_GET['nivaa']) ? $_GET['nivaa'] : 1;
 
     // === CONTENT ===
 
@@ -40,7 +39,7 @@
     if ($_SESSION['page'] == 2) {
       include('Assets/page/sok.php');
     } else if ($_SESSION['page'] == 3) {
-      include('Assets/page/om.php');
+      include('Assets/page/produkt .php');
     } else if ($_SESSION['page'] == 4) {
       include('Assets/page/produkt.php');
     } else if ($_SESSION['page'] == 5) {
