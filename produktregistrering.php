@@ -17,7 +17,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="Assets/bootstrap5/css/bootstrap.css">
+        <script src="Assets/bootstrap5/js/bootstrap.bundle.min.js"></script>
+
         <style>
             .fjalla-one-regular {
                 font-family: "Fjalla One", sans-serif;
@@ -63,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //utfør "query" av database og vis hver av resultatene gjennom printCard-funksjonen
     //i dette tilfellet alle produktene i mockup-databasen (4stk).
-    if (!$stmt->execute()) {
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
+    if ($stmt->execute()) {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
         echo '    <strong>Suksess!</strong>';
         echo '    <button type="button" class="close" data-dismiss="alert" aria-label="Close">';
         echo '    <span aria-hidden="true">&times;</span>';
@@ -87,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="formwrap">
         <div id="tittel"><h3>Produktregistrering</h3></div><br><br>
         <form action="produktregistrering.php" method="POST">
-            <div class="form-group"><label for="pnavn">Produktnavn:</label><input id="pnavn" name="pnavn" class="form-control" type="text"></div>
-            <div class="form-group"><label for="putittel">Undertittel:</label><input id="putittel" name="putittel" class="form-control" type="text"></div>
-            <div class="form-group"><label for="ppris">Pris:</label><input id="ppris" name="ppris" class="form-control" type="number"></div>
-            <div class="form-group"><label for="pfil">Filnavn (legg i assets):</label><input id="pfil" name="pfil" class="form-control" type="text"></div>
+            <div class="form-group"><label for="pnavn">Produktnavn:</label><input id="pnavn" name="pnavn" class="form-control" type="text"></div><br>
+            <div class="form-group"><label for="putittel">Undertittel:</label><input id="putittel" name="putittel" class="form-control" type="text"></div><br>
+            <div class="form-group"><label for="ppris">Pris:</label><input id="ppris" name="ppris" class="form-control" type="number"></div><br>
+            <div class="form-group"><label for="pfil">Filnavn (legg i assets):</label><input id="pfil" name="pfil" class="form-control" type="text"></div><br>
             <div class="form-group">
                 <label for="pkat">Kategori:</label>
                 <select id="pkat" name="pkat" class="form-control">
@@ -119,13 +121,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     ?>
                 </select>
-            </div>
+            </div><br>
             <div class="form-group"><label for="pinfo">Info (bruk gjerne html så det ser bra ut):</label><input id="pinfo" name="pinfo" class="form-control" type="textarea" rows=8></div>
-            <button type="submit" class="btn btn-primary mb-2">Legg til</button>
+            <br><br><button type="submit" class="btn btn-primary mb-2">Legg til</button>
         </form>
         </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
