@@ -1,17 +1,9 @@
-<div class = "personContainer">
-    <div class="p_navn">%%NAVN%%</div>
-    <div class="p_om">%%OM%%</div>
-    <br>
-    <div class="p_adresse">%%ADRESSE&%%</div>
-    <br>
-    <di class="p_tlf"v>%%TLF%%</div>
-    <br>
-    <div class="p_favoritt">%%FAV%%</div>
-    <br>
-</div>
-
-------
-
-<?php
-    
-?>
+<li class="vogn_item">
+    <form action="index.php" method="POST">
+        <div>%%navn%%</div>
+        <div>%%undertittel%%</div>
+        <input type="text" name="nytt_antall" value="%%antall%%">
+        <input type="submit" value="Oppdater ordrelinje">
+        <div>%%pris%%</div>
+    </form>
+</li>

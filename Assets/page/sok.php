@@ -34,15 +34,6 @@
         $query = "SELECT * FROM PRODUKT WHERE navn REGEXP_LIKE (" . $param . ") UNION SELECT * FROM PRODUKT WHERE info REGEXP_LIKE (". $param . ")";
     }
 
-    //koble til mysql-database
-    $con = mysqli_connect("localhost","root","","Temp");
-
-    //hvis feil - exit
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        exit();
-    }
-
     //utfør "query" av database og vis hver av resultatene gjennom printCard-funksjonen
     //i dette tilfellet alle produktene i mockup-databasen (4stk).
     if ($result = mysqli_query($con, $query)) {

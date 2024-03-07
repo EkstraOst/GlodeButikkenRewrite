@@ -2,7 +2,7 @@
   <nav>
     <div class="navbar">
       <div class="header-icon">
-        <a href="/index.php?page=1">
+        <a href="index.php?page=1">
           <img class="imgLogo" src="Assets/Icons/logo_wWhite2.png" alt="left icon">
         </a>
       </div>
@@ -24,14 +24,8 @@
             <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
             <ul class="htmlCss-sub-menu sub-menu">
 
-              <?php
-              $con = mysqli_connect("localhost", "root", "", "Temp");
-              //hvis feil - exit
-              if (mysqli_connect_errno()) {
-                echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                exit();
-              }
 
+              <?php
               //hent alle superkategorier som har aktive kategotier
               $skat_query = "select * from SUPERKATEGORI s where exists (select * from (select * from kategori t where exists (select * from PRODUKT p where p.kategoriID = t.kategoriID)) k where k.s_kategoriID = s.s_kategoriID)";
               if ($result_sk = mysqli_query($con, $skat_query)) {
@@ -67,7 +61,7 @@
       </div>
       <!--Shopping cart button kodet av Amalie -->
       <button class="shoppingCartButton">
-        <a href="/index.php?page=6">
+        <a href="index.php?page=4">
           <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Handlevogn">
         </a>
       </button>
