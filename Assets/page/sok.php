@@ -54,6 +54,10 @@
             while (($line = fgets($handle)) !== false) {
                 $test = str_replace('%%navn%%', $name, $line);
                 $test = str_replace('%%undertittel%%', $subline, $test);
+                $test = str_replace('%%info%%', $price, $test);
+                $test = str_replace('%%produktID%%', $price, $test);
+                $test = str_replace('%%pris%%', $price, $test);
+                $test = str_replace('%%pris%%', $price, $test);
                 $test = str_replace('%%pris%%', $price, $test);
                 echo $test;
 
