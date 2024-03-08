@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="Assets/css/textOmOss.css"/>
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <script src="Assets/js/script.js" defer></script>
+    <script src="Assets/js/leggIVogn.js" defer></script>
     <title>Gløde Data</title>
   </head>
 
