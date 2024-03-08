@@ -66,13 +66,7 @@ function oppdaterBruker($con) {
   }
 }
 
-function finnLavestePris($produktID, $con) {
-  $query = "SELECT MIN(nypris) AS sluttpris FROM RABATT WHERE EXISTS (SELECT * FROM KAMPANJE WHERE NOW() < sluttdato AND startdato < NOW()) AND produktID = " . $produktID;
 
-  if ($row = mysqli_query($con, $query)) {
-        echo "";
-  }
-}
     // === CONTENT ===
 
     //HEADER
@@ -81,7 +75,7 @@ function finnLavestePris($produktID, $con) {
     //SIDEVISNING
     //default:side 1 - hjem
     //side 2: søkeside (type=x, param=x, nivaa=?)
-    //side 3: produktvisning; type=?, param=x nivaa=4
+    //side 3: produktvisning; type=?, param=id
     //side 4: vogn.
     echo "<body>";
     if ($_SESSION['page'] == 2) {

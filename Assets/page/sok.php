@@ -38,7 +38,7 @@
     //i dette tilfellet alle produktene i mockup-databasen (4stk).
     if ($result = mysqli_query($con, $query)) {
         while($row = mysqli_fetch_assoc($result)) {
-            printCard($row['navn'], $row['undertittel'], $row['pris']);
+            printCard($row['navn'], $row['undertittel'], $row['pris'], $row['produktID']);
         }
 
         mysqli_free_result($result);
@@ -48,17 +48,14 @@
     mysqli_close($con);
 
     //enkel "template-funksjon" konsept
-    function printCard($name, $subline, $price) {
+    function printCard($name, $subline, $price, $id) {
         $handle = fopen("Assets/templates/productcard.html", "r");
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
                 $test = str_replace('%%navn%%', $name, $line);
                 $test = str_replace('%%undertittel%%', $subline, $test);
-                $test = str_replace('%%info%%', $price, $test);
-                $test = str_replace('%%produktID%%', $price, $test);
                 $test = str_replace('%%pris%%', $price, $test);
-                $test = str_replace('%%pris%%', $price, $test);
-                $test = str_replace('%%pris%%', $price, $test);
+                $test = str_replace('%%id%%', $id, $test);
                 echo $test;
 
                 //NIVAA: index.php?nivaa=4?page=4?pid=x
