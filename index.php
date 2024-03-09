@@ -1,4 +1,39 @@
+<?php 
+//DEBUG
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
+//Start session og koble til database
+session_start();
+$con = mysqli_connect("localhost", "root", "", "Temp");
+if (mysqli_connect_errno()) {
+  echo "Noe gikk galt: " . mysqli_connect_error();
+  exit();
+}
+
+//Finn ut av id til bruker..
+if (!isset($_SESSION['id'])) {
+  if (isset($_COOKIE['id'])) {
+    $_SESSION['id'] = $_COOKIE['id'];
+  } else {
+    nyBruker($con);
+  }
+}
+if (!isset($_SESSION['id'])) {
+  echo "Kunne ikke skape anonym id";
+  exit();
+}
+oppdaterBruker($con);
+
+
+//ordne verdier for navigering og søk
+$_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : $_SESSION['page'];
+$_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : 0;
+$_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : ".*";
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="nb" dir="ltr">
@@ -14,61 +49,35 @@
     <link rel="stylesheet" href="Assets/css/textOmOss.css"/>
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
-    <script src="Assets/js/script.js" defer></script>
-    <script src="Assets/js/leggIVogn.js" defer></script>
+    <script type="text/javascript" src="Assets/js/script.js" defer></script>
+    <script type="text/javascript" src="Assets/js/leggIVogn.js" defer></script>
     <title>Gløde Data</title>
   </head>
 
 
 <?php 
-//DEBUG
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
-//Start session og set variabler fra evd get. Lag anonym bruker og set cookie hvis nødvendig
-session_start();
-$con = mysqli_connect("localhost", "root", "", "Temp");
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
-}
+
+
+
 print_r($_COOKIE);
-if (!isset($_COOKIE['id'])) {
-  nyBruker($con);
-}
-oppdaterBruker($con);
-//print "$_SERVER['HTTP_HOST']";
-
-$_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : 0;
-$_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : 0;
-$_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : "^.*%";
-
-echo $_COOKIE['id'] . " " . $_SESSION['page'];
 
 function nyBruker($con) {
-  //hvis feil - exit
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-  }
-
-  //lager ny bruker
   $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
   if (mysqli_query($con, $query)) {
     $last_id = mysqli_insert_id($con);
-    $_COOKIE['id'] = $last_id;
+    $_SESSION['id'] = $last_id;
+  } else {
+    echo "Noe gikk forferdelig galt. RIP in pieces";
+    exit();
   }
 }
 
 function oppdaterBruker($con) {
   //oppdater sist-sett
-  $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_COOKIE['id'];
-  if (mysqli_query($con, $query)) {
-    //workaround så cookies virker på localhost også
-    $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-    setcookie('id', $_COOKIE['id'], time() + 24*60*60, "/", "." . $domain, false);
-    echo "OPPDATERT";
-  }
+  $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
+  mysqli_query($con, $query);
+  setcookie("id", $_SESSION['id'], time()+3600*24*14);
 }
 
 

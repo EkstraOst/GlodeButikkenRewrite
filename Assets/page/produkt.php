@@ -39,6 +39,11 @@
                 $test = str_replace('%%kategori%%', $kat, $test);
                 $test = str_replace('%%pris%%', $pris, $test);
                 $test = str_replace('%%autosalg%%', $autosalg, $test);
+                if ($autosalg == '1') {
+                    $test = str_replace('glode-ikkesalgbar', 'glode-salgbar', $test);
+                } else {
+                    $test = str_replace('glode-salgbar', 'glode-ikkesalgbar', $test);
+                }
                 echo $test;
 
                 //NIVAA: index.php?nivaa=4?page=4?pid=x

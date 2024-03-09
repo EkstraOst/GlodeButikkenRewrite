@@ -220,3 +220,14 @@ div.gallery img {
     } 
     
 }
+
+
+
+
+.glode-salgbar {
+    background-color: black;
+}
+
+.glode-ikkesalgbar {
+    background-color: red;
+}

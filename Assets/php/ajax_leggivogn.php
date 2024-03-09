@@ -1,20 +1,24 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "Temp");
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-$query = "INSERT INTO VOGN_ITEM (kundeID, produktID) VALUES (" . $_SESSION['id'] . ", " . $_GET['pid'] . ")";
-echo $query;
-if (mysqli_query($conn, $query)) {
-    $query2 = "SELECT COUNT(*) as count FROM (SELECT * FROM VOGN_ITEM WHERE kundeID = " . $_SESSION['id'] . ")";
-    if ($result = mysqli_query($conn, $query2)) {
-        $row = mysqli_fetch_assoc($result);
-        echo $row['count'];
+    $con = new mysqli("localhost","root","","Temp");
+    if ($con->connect_error) {
+        die("Failed to connect to MySQL: " . $con->connect_error);
     }
-} else {
-    echo "INGENTING TINGELING";
-}
 
+    //Legg til produktet i vogn
+    $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, NOW())");
+    $stmt->bind_param("dd", $kid, $pid);
+    $kid = $_SESSION['id'];
+    $pid = $_GET['produktid'];
+    $stmt->execute();
+
+    //finn antall produkter i vogn og skriv ut
+    $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = " . $kid);
+    $stmt2->execute();
+    $stmt2->bind_result($antall);
+    $stmt2->fetch();
+
+    echo $antall;
+}
