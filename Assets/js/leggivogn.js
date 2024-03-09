@@ -1,3 +1,5 @@
+//Legger 1 stk produkt i handlevogn.
+//etterpå skriver den ut antall produkter totalt
 function leggIVogn(produktid) {
     var xhttp; 
     if (produktid == "") {

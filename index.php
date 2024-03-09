@@ -27,6 +27,12 @@ oppdaterBruker($con);
 
 
 //ordne verdier for navigering og søk
+if (!isset($_SESSION['page'])) {
+  $_SESSION['page'] = 1;
+}
+if (!isset($_SESSION['type'])) {
+  $_SESSION['type'] = 0;
+}
 $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : $_SESSION['page'];
 $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : 0;
 $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : ".*";
@@ -61,6 +67,7 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : ".*";
 
 
 print_r($_COOKIE);
+print_r($_SESSION);
 
 function nyBruker($con) {
   $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";

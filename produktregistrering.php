@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             <button type="submit" class="btn btn-primary mb-2">Legg til</button>
             <br>
-            <button type="button" class="btn btn-outline-info mb-2 btn-sm" id="rngesus" name="Flippert McKvakk">Random</button>
+            <button type="button" class="btn btn-outline-info mb-2 btn-sm" id="rngesus" name="Flippert McKvakk">Randomize</button>
         
         </form>
         </div>

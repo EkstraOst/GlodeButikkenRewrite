@@ -38,7 +38,6 @@
     //i dette tilfellet alle produktene i mockup-databasen (4stk).
     if ($result = mysqli_query($con, $query)) {
         while($row = mysqli_fetch_assoc($result)) {
-            echo "TEST";
             printCard($row['navn'], $row['undertittel'], $row['pris'], $row['produktID'], $row['bilde']);
         }
 

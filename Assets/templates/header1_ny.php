@@ -69,4 +69,4 @@
   </nav>
 </header>
 
-<div id="badge">HEI</div>
+<div id="badge"></div>

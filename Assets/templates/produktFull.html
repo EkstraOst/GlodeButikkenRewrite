@@ -13,7 +13,7 @@
         <!-- Kodet av Tiril -->
             <section class="section">
                 <div class="image">
-                    <img class="productImg" src="%%bilde%%" alt="%%kategori%%"/>
+                    <img class="productImg" src="Assets/php/visProduktBilde?id=%%id%%" alt="%%kategori%%"/>
                 </div>
         
                 <div class="information">
@@ -24,9 +24,9 @@
                     <!--1,000,00 er greya ut pågrun av tilbud-->
                     <p class="nok">%%pris%%</p>
         
-                    <!-- Legg i handlekurv -->
+                    <!-- Legg i handlekurv TODO: ajax som på produktkort-->
                     <div class="formAndButton">
-                        <form action="produkt.php" method="POST" class="form">
+                        <form action="leggivogn.php" method="POST" class="form">
                             <label for="quantity" class="screen_reader_text"></label>
                             <input type="hidden" name="%%produktID%%">
                             <input type="number" id="quantity" name="quantity" class="inputText" value="1" min="1">
