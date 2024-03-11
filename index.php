@@ -13,8 +13,11 @@ function getBilde($pid) {
   $stmt = $con->prepare("SELECT bilde from PRODUKT WHERE produktID = ?");
   $stmt->bind_param("d", $pid);
   $stmt->execute();
-  $res = [$stmt->get_result()];
-  echo base64_encode($res['bilde']);
+  $stmt->bind_result($bilete);
+  $stmt->fetch();
+
+  
+  echo base64_encode($bilete);
 }
 
 function nyBruker($con) {
@@ -39,6 +42,7 @@ function oppdaterBruker($con) {
 //Start session og koble til database
 session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
 session_start();
+
 $con = mysqli_connect("localhost", "root", "", "Temp");
 if (mysqli_connect_errno()) {
   echo "Noe gikk galt: " . mysqli_connect_error();

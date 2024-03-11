@@ -56,19 +56,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $con->prepare("INSERT INTO PRODUKT(inventar, navn, undertittel, info, kategoriID, pris, bilde, autosalg)  
                             VALUES (0, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssddsd", $navn, $ut, $info, $kat, $pris, $fil, $asalg);
+    $stmt->bind_param("sssddsd", $navn, $ut, $info, $kat, $pris, $lagretfilnavn, $asalg);
 
     $navn = $_POST['pnavn'];
     $ut = $_POST['putittel'];
     $info = $_POST['pinfo'];
     $pris = $_POST['ppris'];
     $kat = $_POST['pkat'];
-    $fil = "";
-    if (isset($_FILES['bilde']['tmp_name'])) {
-        $fil = file_get_contents($_FILES['pbilde']['tmp_name']);
-    } else {
-        $fil = file_get_contents($BILDE_PLACEHOLDER);
-    }
+    $fil = isset($_FILES['bilde']['name'])?$_POST['bilde']:"produkt_placeholder.jpg";
     $asalg = 1;
     if (isset($_POST['autosalg']) && $_POST['autosalg'] == "0") {
         $asalg = 0;
@@ -133,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             }
                             mysqli_free_result($result);
                         }
-
                     ?>
                 </select>
             </div>

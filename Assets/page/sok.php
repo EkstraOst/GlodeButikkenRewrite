@@ -36,8 +36,6 @@
     }
 
     //avslutt databaseforbindelsen
-    mysqli_close($con);
-
     //enkel "template-funksjon" konsept
     function printCard($name, $subline, $price, $id, $bilde) {
         $handle = fopen("Assets/templates/productcard.html", "r");
@@ -47,7 +45,7 @@
                 $test = str_replace('%%undertittel%%', $subline, $test);
                 $test = str_replace('%%pris%%', $price, $test);
                 $test = str_replace('%%id%%', $id, $test);
-                $test = str_replace('%%bilde%%', $bilde, getBilde($id));
+                //$test = str_replace('%%bilde%%', $bilde, getBilde($id));
                 echo $test;
 
                 //NIVAA: index.php?nivaa=4?page=4?pid=x

@@ -20,5 +20,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt2->bind_result($antall);
     $stmt2->fetch();
 
-    echo $antall;
+    echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
 }

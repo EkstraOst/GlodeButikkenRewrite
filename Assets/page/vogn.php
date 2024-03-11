@@ -15,37 +15,74 @@ function printVognLinje($name, $subline, $price, $num) {
 };
 
 // QUERY 1: FINN PRODUKT OG ANTALL I VOGN
-$query = "select produktID, count(*) as antall from VOGN_ITEM where kundeID = " . $_COOKIE['id'] . " group by produktID";
+$query = "select produktID, count(*) as antall from VOGN_ITEM where kundeID = " . $_SESSION['id'] . " group by produktID";
 //
+echo "<table><tr>
+        <th>Produkt</th>
+        <th>Antall</th>
+        <th>Pris</th>
+        <th>Sum</th>";
 if ($result = mysqli_query($con, $query)) {
-    echo "<ul id='vognliste'>";
+    echo "<tr>";
+    $total = 0;
     while ($row = mysqli_fetch_assoc($result)) {
+        echo "<th>";
         //FOR HVERT PRODUKT I LISTEN;
         $subtotal = 0;
-        $subquery = "select * from PRODUKT where produktID = " . $row['produktID'];
+        $subquery = "SELECT 
+                PRODUKT.produktID,
+                PRODUKT.navn, 
+                PRODUKT.undertittel, 
+                PRODUKT.info, 
+                PRODUKT.inventar, 
+                KATEGORI.navn as kategori, 
+                PRODUKT.autosalg,
+                PRODUKT.pris,
+                IFNULL(min(RABATT.nypris), PRODUKT.pris) as sluttpris 
+            FROM 
+                PRODUKT
+            INNER JOIN 
+                RABATT 
+            ON 
+                PRODUKT.produktID = RABATT.produktID
+            INNER JOIN 
+                KAMPANJE 
+            ON 
+                KAMPANJE.kampanjeID = RABATT.kampanjeID
+            INNER JOIN 
+                KATEGORI 
+            ON 
+                KATEGORI.kategoriID = PRODUKT.kategoriID
+            WHERE 
+                PRODUKT.produktID = 1
+            AND 
+                NOW() >= KAMPANJE.startdato
+            AND 
+                NOW() < KAMPANJE.sluttdato";
+
+
         if ($subresult = mysqli_query($con, $subquery)) {
             $subrow = mysqli_fetch_assoc($subresult);
-
-            //Sjekk for rabatt
-            $ny_pris = $subrow['pris'];
-            $merk_salg = false;
-            $prisquery = "select * from KAMPANJE k where NOW() > startdato AND NOW() <= sluttdato AND EXISTS (select r.nypris from RABATT r where (r.kampanjeID = k.kampanjeID AND r.produktID = 1))";
-            if ($prisresult = mysqli_query($con, $prisquery)) {
-                while ($prisrow = mysqli_fetch_assoc($prisresult)) {
-                    if ($ny_pris > $prisrow['nypris']) {
-                        $ny_pris = $prisrow['nypris'];
-                        $merk_salg = true;
-                    }
-                }
-
-            }
-            $subtotal = $row['antall'] * $ny_pris;
-
+            $subtotal = $row['antall'] * $subrow['sluttpris'];
             $total += $subtotal;
+            $navn = $subrow['navn'];
+            $undertittel = $subrow['undertittel'];
+            $info = $subrow['info'];
+            $sluttpris = $subrow['sluttpris'];
+            $inventar = $subrow['inventar'];
+            $autosalg = $subrow['autosalg'];
+            $kategori = $subrow['kategori'];
+
+            echo "<tr>" . $navn . "</tr>";
+            echo "<tr>" . $antall . "</tr>";
+            echo "<tr>" . $pris . "</tr>";
+            echo "<tr>" . $subtotal . "</tr>";
         }
-        echo "</ul>";
-        echo "<div class='totalsum'>" . $total . "</div>";
+        echo "</th>";
+        echo "</tr>";
     }
+    echo "</table>";
+    echo "<div class='totalsum'>" . $total . "</div>";
     mysqli_free_result($result);
 }
 

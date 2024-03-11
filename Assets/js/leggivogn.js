@@ -12,7 +12,7 @@ function leggIVogn(produktid) {
             document.getElementById("badge").innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "Assets/php/ajax_leggivogn.php?test=2&pid=" + produktid, true);
+    xhttp.open("GET", "Assets/php/ajax_leggivogn.php?pid=" + produktid, true);
     xhttp.send();
     //alert(this.responseText);
 }
