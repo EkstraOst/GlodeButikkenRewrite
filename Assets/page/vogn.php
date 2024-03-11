@@ -1,5 +1,7 @@
 <?php
 
+//SKAL ORDRELINJO OPPDATERES? I så fall er $_GET
+
 function printVognLinje($name, $subline, $price, $num) {
     $handle = fopen("Assets/templates/vogn_item.html", "r");
     if ($handle) {
@@ -26,7 +28,7 @@ if ($result = mysqli_query($con, $query)) {
     $vogn_output .= "<tr>";
     $total = 0;
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<th>";
+        $vogn_output .= "<th>";
         //FOR HVERT PRODUKT I LISTEN;
         $subtotal = 0;
         $subquery = "
@@ -76,9 +78,9 @@ if ($result = mysqli_query($con, $query)) {
             $kategori = $subrow['kategori'];
 
             $vogn_output .= "<tr>" . $navn . "</tr>";
-            echo "<tr>" . $antall . "</tr>";
-            echo "<tr>" . $sluttpris . "</tr>";
-            echo "<tr>" . $subtotal . "</tr>";
+            $vogn_output .= "<tr>" . $antall . "</tr>";
+            $vogn_output .= "<tr>" . $sluttpris . "</tr>";
+            $vogn_output .= "<tr>" . $subtotal . "</tr>";
         }
         $vogn_output .= "</th>";
         $vogn_output .= "</tr>";
@@ -86,6 +88,7 @@ if ($result = mysqli_query($con, $query)) {
     $vogn_output .= "</table>";
     $vogn_output .= "<div class='totalsum'>" . $total . "</div>";
     mysqli_free_result($result);
+    echo $vogn_output;
 }
 
 /*

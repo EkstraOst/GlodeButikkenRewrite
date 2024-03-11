@@ -1,93 +1,79 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <main>
+<main> 
+<section class="section">
+<div class="image">
+<img class="productImg" src="Assets/php/visProduktBilde?id=%%id%%" alt="%%kategori%%"/>
+</div>
+
+<div class="information">
+<h1 class="headProduct">%%navn%%</h1>
+
+%%undertittel%%
+
+<!--1,000,00 er greya ut pågrun av tilbud-->
+<p class="nok">%%pris%%</p>
+
+<!-- Legg i handlekurv TODO: ajax som på produktkort-->
+<div class="formAndButton">
+<form action="leggivogn.php" method="POST" class="form">
+<label for="quantity" class="screen_reader_text"></label>
+<input type="hidden" name="%%produktID%%">
+<input type="number" id="quantity" name="quantity" class="inputText" value="1" min="1">
+</form>
+<p class="stk">stk</p>
+<!-- Knapp -->
+<button type="submit" name="legg_til_vogn" value="4901" class="addToCartBtn"><a class="tempLinkShop leggivogn" href="">Legg til handlekurv</a></button>
+<!--Lagt til en placeholder link, slik at det går an å trykke på knappen og at den fører til handlekurv, 
+dor å gi et lite innblikk. Koden blir ikkje værende slik når back-end kommer på plass  -Mvh Polly-->
+</div>
+</div>
+</section>
+
+<!-- MEIR INFORMASJON OM PRODUKTET -->
+<section class="moreInformation">
+<h1 class="moreText">Meir informasjon</h1>
+%%info%%
+</section>
+
+<!-- RELATERTE PRODUKTER -->
+<section class="relatedProducts">
+<h1 class="headerRelated">Relaterte produkter</h1>
+
+<div class="responsive">
+<div class="frame">
+<div class="gallery">
+<a target="_blank" href="#">
+<img src="Assets/ProductImg/Dell_Latitude.webp" alt="Datamaskin" >
+</a>
+<div class="desc">
+<p class="textRelated">Dell Latitude E7250 SSD 8 GB RAM</p>
+<p class="relatedNok">kr 1,700.00,-</p>
+</div>
+</div>
 
 
-        <!-- PRODUKT INFORMASJON -->
-        <!-- Kodet av Tiril -->
-            <section class="section">
-                <div class="image">
-                    <img class="productImg" src="Assets/php/visProduktBilde?id=%%id%%" alt="%%kategori%%"/>
-                </div>
-        
-                <div class="information">
-                    <h1 class="headProduct">%%navn%%</h1>
-        
-                    %%undertittel%%
-        
-                    <!--1,000,00 er greya ut pågrun av tilbud-->
-                    <p class="nok">%%pris%%</p>
-        
-                    <!-- Legg i handlekurv TODO: ajax som på produktkort-->
-                    <div class="formAndButton">
-                        <form action="leggivogn.php" method="POST" class="form">
-                            <label for="quantity" class="screen_reader_text"></label>
-                            <input type="hidden" name="%%produktID%%">
-                            <input type="number" id="quantity" name="quantity" class="inputText" value="1" min="1">
-                        </form>
-                        <p class="stk">stk</p>
-                        <!-- Knapp -->
-                        <button type="submit" name="legg_til_vogn" value="4901" class="addToCartBtn"><a class="tempLinkShop" href="">Legg til handlekurv</a></button>
-                        <!--Lagt til en placeholder link, slik at det går an å trykke på knappen og at den fører til handlekurv, 
-                         dor å gi et lite innblikk. Koden blir ikkje værende slik når back-end kommer på plass  -Mvh Polly-->
-                    </div>
-                </div>
-            </section>
-            
-            <!-- MEIR INFORMASJON OM PRODUKTET -->
-            <section class="moreInformation">
-                <h1 class="moreText">Meir informasjon</h1>
-                %%info%%
-            </section>
-        
-            <!-- RELATERTE PRODUKTER -->
-            <section class="relatedProducts">
-                <h1 class="headerRelated">Relaterte produkter</h1>
-                
-                <div class="responsive">
-                  <div class="frame">
-                    <div class="gallery">
-                      <a target="_blank" href="#">
-                        <img src="Assets/ProductImg/Dell_Latitude.webp" alt="Datamaskin" >
-                      </a>
-                      <div class="desc">
-                        <p class="textRelated">Dell Latitude E7250 SSD 8 GB RAM</p>
-                        <p class="relatedNok">kr 1,700.00,-</p>
-                      </div>
-                    </div>
-        
-                  
-                    <div class="gallery">
-                      <a target="_blank" href="#">
-                        <img src="Assets/ProductImg/Latitude_E7450.webp" alt="Datamaskin" >
-                      </a>
-                      <div class="desc">
-                        <p class="textRelated">Dell Latitude E7450</p>
-                        <p class="relatedNok">kr 1,900.00,-</p>
-                      </div>
-                    </div>
-        
-                    <div class="gallery">
-                      <a target="_blank" href="#">
-                        <img src="Assets/ProductImg/Latitude_E7450.webp" alt="Datamaskin" >
-                      </a>
-                      <div class="desc">
-                        <p class="textRelated">Dell Latitude E7450</p>
-                        <p class="relatedNok">kr 1,900.00,-</p>
-                      </div>
-                    </div>
-        
-                  </div>
-                </div>
-              
-            </section>
-        
-    </main>
-</body>
-</html>
+<div class="gallery">
+<a target="_blank" href="#">
+<img src="Assets/ProductImg/Latitude_E7450.webp" alt="Datamaskin" >
+</a>
+<div class="desc">
+<p class="textRelated">Dell Latitude E7450</p>
+<p class="relatedNok">kr 1,900.00,-</p>
+</div>
+</div>
+
+<div class="gallery">
+<a target="_blank" href="#">
+<img src="Assets/ProductImg/Latitude_E7450.webp" alt="Datamaskin" >
+</a>
+<div class="desc">
+<p class="textRelated">Dell Latitude E7450</p>
+<p class="relatedNok">kr 1,900.00,-</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+</main>
