@@ -14,11 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $pid = $_GET['produktid'];
     $stmt->execute();
 
+    echo "OLEGUNNAR1";
+
     //finn antall produkter i vogn og skriv ut
     $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = " . $kid);
     $stmt2->execute();
     $stmt2->bind_result($antall);
     $stmt2->fetch();
+
+    echo "OLEGUNNAR2"; 
 
     echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
 }

@@ -26,7 +26,7 @@
 
 
               <?php
-              //hent alle superkategorier som har aktive kategotier
+              //hent alle superkategorier som har aktive kategorier
               $skat_query = "select * from SUPERKATEGORI s where exists (select * from (select * from kategori t where exists (select * from PRODUKT p where p.kategoriID = t.kategoriID)) k where k.s_kategoriID = s.s_kategoriID)";
               if ($result_sk = mysqli_query($con, $skat_query)) {
                 while ($skrow = mysqli_fetch_assoc($result_sk)) {
