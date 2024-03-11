@@ -75,7 +75,7 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param']
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
     <script type="text/javascript" src="Assets/js/script.js" defer></script>
-    <script type="text/javascript" src="Assets/js/leggIVogn.js" defer></script>
+    <script type="text/javascript" src="Assets/js/leggivogn.js" defer></script>
     <title>Gløde Data</title>
   </head>
 
