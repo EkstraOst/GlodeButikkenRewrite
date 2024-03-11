@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             exit();
                         }
                         $query = "SELECT * FROM KATEGORI";
-                        
+                        echo "OLE";
                         //finn alle kategorier og gjør de om til valg i meny
                         if ($result = mysqli_query($con, $query)) {
                             while($row = mysqli_fetch_assoc($result)) {
