@@ -1,5 +1,11 @@
 //Legger 1 stk produkt i handlevogn.
 //etterpå skriver den ut antall produkter totalt
+
+const collection = document.getElementsByClassName("leggivogn");
+for (const btn of collection) {
+    btn.onclick = function() {leggivogn(btn.value)};
+}
+
 function leggivogn(produktid) {
     var xhttp; 
     if (produktid == "") {
