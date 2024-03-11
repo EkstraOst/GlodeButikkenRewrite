@@ -3,16 +3,13 @@
 
 const collection = document.getElementsByClassName("leggivogn");
 for (const btn of collection) {
-    btn.onclick = function() {leggivogn(btn.value)};
+    btn.onclick = function() {leggivogn(btn)};
 }
 
-function leggivogn(produktid) {
-    var xhttp; 
-    if (produktid == "") {
-        document.getElementById("badge").innerHTML = "";
-        return;
-    }
-    xhttp = new XMLHttpRequest();
+function leggivogn(element) {
+    if (element == "") return;
+    const xhttp = new XMLHttpRequest();
+    const produktid = element.value;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("badge").innerHTML = this.responseText;
