@@ -57,7 +57,7 @@ if ($result = mysqli_query($con, $query)) {
         ON 
             KATEGORI.kategoriID = PRODUKT.kategoriID
         WHERE 
-            PRODUKT.produktID = 1
+            PRODUKT.produktID = " . $row['produktID'] . "
         AND 
             NOW() >= KAMPANJE.startdato
         AND 

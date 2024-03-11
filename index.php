@@ -24,16 +24,16 @@ function oppdaterBruker($con) {
 
 
 //Start session og koble til database
-session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
-session_start();
-
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
   echo "Noe gikk galt: " . mysqli_connect_error();
   exit();
 }
 
-//Finn ut av id til bruker..
+session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
+session_start();
+
+//Finn id til bruker.
 if (!isset($_SESSION['id'])) {
   if (isset($_COOKIE['id'])) {
     $_SESSION['id'] = $_COOKIE['id'];
@@ -45,7 +45,7 @@ if (!isset($_SESSION['id'])) {
   echo "Kunne ikke skape anonym id";
   exit();
 }
-oppdaterBruker($con);
+oppdaterBruker($con); //sett sist sett
 
 
 //ordne verdier for navigering og søk
