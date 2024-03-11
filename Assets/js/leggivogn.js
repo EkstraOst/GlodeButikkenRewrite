@@ -1,6 +1,6 @@
 //Legger 1 stk produkt i handlevogn.
 //etterpå skriver den ut antall produkter totalt
-function leggIVogn(produktid) {
+function leggivogn(produktid) {
     var xhttp; 
     if (produktid == "") {
         document.getElementById("badge").innerHTML = "";
@@ -14,5 +14,5 @@ function leggIVogn(produktid) {
     };
     xhttp.open("GET", "Assets/php/ajax_leggivogn.php?pid=" + produktid, true);
     xhttp.send();
-    //alert(this.responseText);
+    alert(this.responseText);
 }
