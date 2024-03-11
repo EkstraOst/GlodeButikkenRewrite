@@ -4,22 +4,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 //FUNKSJONER
-function getBilde($pid) {
-  $con = new mysqli("localhost","root","","Temp");
-  if ($con->connect_error) {
-      die("Failed to connect to MySQL: " . $con->connect_error);
-  }
-
-  $stmt = $con->prepare("SELECT bilde from PRODUKT WHERE produktID = ?");
-  $stmt->bind_param("d", $pid);
-  $stmt->execute();
-  $stmt->bind_result($bilete);
-  $stmt->fetch();
-
-  
-  echo base64_encode($bilete);
-}
-
 function nyBruker($con) {
   $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
   if (mysqli_query($con, $query)) {
@@ -43,7 +27,7 @@ function oppdaterBruker($con) {
 session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
 session_start();
 
-$con = mysqli_connect("localhost", "root", "", "Temp");
+$con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
   echo "Noe gikk galt: " . mysqli_connect_error();
   exit();

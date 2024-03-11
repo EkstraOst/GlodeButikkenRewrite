@@ -2,8 +2,9 @@
     <form action="index.php" method="POST">
         <div>%%navn%%</div>
         <div>%%undertittel%%</div>
-        <input type="text" name="nytt_antall" value="%%antall%%">
+        <input type="number" name="nytt_antall" value="%%antall%%">
         <input type="submit" value="Oppdater ordrelinje">
-        <div>%%pris%%</div>
+        <input type="hidden" name="skjultID" value="%%id%%">
+        <div>%%sluttpris%%</div>
     </form>
 </li>
