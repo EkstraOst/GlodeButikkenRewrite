@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <select id="pkat" name="pkat" class="form-control">
                     <?php
                         //koble til og gjør klar søk
-                        $con = mysqli_connect("localhost","root","","Temp");
+                        $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
                         if (mysqli_connect_errno()) {
                             echo "Failed to connect to MySQL: " . mysqli_connect_error();
                             exit();
