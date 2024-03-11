@@ -3,13 +3,12 @@
 
 const collection = document.getElementsByClassName("leggivogn");
 for (const btn of collection) {
-    btn.onclick = function() {leggivogn(btn)};
+    btn.onclick = function() {leggivogn(btn.value)};
 }
 
-function leggivogn(element) {
+function leggivogn(produktid) {
     if (element == "") return;
     const xhttp = new XMLHttpRequest();
-    const produktid = element.value;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("badge").innerHTML = this.responseText;
@@ -17,5 +16,5 @@ function leggivogn(element) {
     };
     xhttp.open("GET", "Assets/php/ajax_leggivogn.php?pid=" + produktid, true);
     xhttp.send();
-    alert(this.responseText);
+    alert(this.responseText, produktid);
 }
