@@ -9,7 +9,6 @@ for (const btn of collection) {
 
 function leggivogn(produktid) {
     if (produktid == "") alert("ingen produktid sendt");
-    alert("" + produktid);
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
