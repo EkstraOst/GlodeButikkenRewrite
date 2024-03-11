@@ -46,8 +46,7 @@ $BILDE_PLACEHOLDER = "Assets/img/placeholder_image.jpg";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //print_r($_POST);
-
-    $con = new mysqli("localhost","root","","Temp");
+    $con = new mysqli("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 
     //hvis feil - exit
     if ($con->connect_error) {
