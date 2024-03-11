@@ -3,7 +3,41 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+//FUNKSJONER
+function getBilde($pid) {
+  $con = new mysqli("localhost","root","","Temp");
+  if ($con->connect_error) {
+      die("Failed to connect to MySQL: " . $con->connect_error);
+  }
+
+  $stmt = $con->prepare("SELECT bilde from PRODUKT WHERE produktID = ?");
+  $stmt->bind_param("d", $pid);
+  $stmt->execute();
+  $res = [$stmt->get_result()];
+  echo base64_encode($res['bilde']);
+}
+
+function nyBruker($con) {
+  $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
+  if (mysqli_query($con, $query)) {
+    $last_id = mysqli_insert_id($con);
+    $_SESSION['id'] = $last_id;
+  } else {
+    echo "Noe gikk forferdelig galt. RIP in pieces";
+    exit();
+  }
+}
+
+function oppdaterBruker($con) {
+  //oppdater sist-sett
+  $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
+  mysqli_query($con, $query);
+  setcookie("id", $_SESSION['id'], time()+3600*24*14);
+}
+
+
 //Start session og koble til database
+session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
 session_start();
 $con = mysqli_connect("localhost", "root", "", "Temp");
 if (mysqli_connect_errno()) {
@@ -27,15 +61,12 @@ oppdaterBruker($con);
 
 
 //ordne verdier for navigering og søk
-if (!isset($_SESSION['page'])) {
-  $_SESSION['page'] = 1;
-}
-if (!isset($_SESSION['type'])) {
-  $_SESSION['type'] = 0;
-}
+if (!isset($_SESSION['page'])) { $_SESSION['page'] = 1; }
+if (!isset($_SESSION['type'])) { $_SESSION['type'] = 0; }
+if (!isset($_SESSION['param'])) { $_SESSION['param'] = ".*"; }
 $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : $_SESSION['page'];
-$_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : 0;
-$_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : ".*";
+$_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : $_SESSION['type'];
+$_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param'];
 
 
 
@@ -62,30 +93,6 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : ".*";
 
 
 <?php 
-
-
-
-
-print_r($_COOKIE);
-print_r($_SESSION);
-
-function nyBruker($con) {
-  $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
-  if (mysqli_query($con, $query)) {
-    $last_id = mysqli_insert_id($con);
-    $_SESSION['id'] = $last_id;
-  } else {
-    echo "Noe gikk forferdelig galt. RIP in pieces";
-    exit();
-  }
-}
-
-function oppdaterBruker($con) {
-  //oppdater sist-sett
-  $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
-  mysqli_query($con, $query);
-  setcookie("id", $_SESSION['id'], time()+3600*24*14);
-}
 
 
     // === CONTENT ===

@@ -14,16 +14,9 @@ function printVognLinje($name, $subline, $price, $num) {
     }
 };
 
-$pcount = [];
-// QUERY 1: FINN
-
-//DEBUG:
-$_COOKIE['id'] = 1;
-//end DEBUG
-
+// QUERY 1: FINN PRODUKT OG ANTALL I VOGN
 $query = "select produktID, count(*) as antall from VOGN_ITEM where kundeID = " . $_COOKIE['id'] . " group by produktID";
 //
-$total = 0;
 if ($result = mysqli_query($con, $query)) {
     echo "<ul id='vognliste'>";
     while ($row = mysqli_fetch_assoc($result)) {

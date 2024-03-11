@@ -507,33 +507,27 @@ footer {
 
 /* MQ - Laptop */
 @media only screen and (min-width: 992px) {
-
-.imgSplash {
-  width: 990px;
-  height: 520px; 
-  
-}
-
-.leftImg {
-  height: 340px;
-  width: 350px;
-  /* margin-left: 660px; */
-}
-
+  .imgSplash {
+    width: 990px;
+    height: 520px; 
+    
+  }
+  .leftImg {
+    height: 340px;
+    width: 350px;
+    /* margin-left: 660px; */
+  }
 }
 
 /* MQ - Large Laptop */
 @media only screen and (min-width: 1200px) {
-
-.imgSplash {
-  width: 1410px;
-  height: 520px; 
+  .imgSplash {
+    width: 1410px;
+    height: 520px; 
+  }
+  .leftImg {
+    height: 340px;
+    width: 350px;
+    /* margin-left: 1070px; */
+  }
 }
-
-.leftImg {
-  height: 340px;
-  width: 350px;
-  /* margin-left: 1070px; */
-}
-
-} 

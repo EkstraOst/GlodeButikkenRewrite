@@ -6,7 +6,7 @@ function fyllSkjemaMedTull() {
     let inputInfo = document.getElementById("pinfo");
     let inputPris = document.getElementById("ppris");
     let inputAutosalg = document.getElementById("autosalg")
-    inputNavn.value = faker.commerce.product();
+    inputNavn.value = faker.commerce.productAdjective() + " " + faker.commerce.product() ;
     inputUndertittel.value = faker.commerce.productAdjective() + ". " + faker.commerce.productAdjective() + ". " + faker.commerce.productAdjective();
     inputInfo.value = faker.lorem.paragraphs({ min: 1, max: 4 }, '<br>\n');
     inputPris.value = (Math.floor(Math.random() * 20) * 10) + 99;

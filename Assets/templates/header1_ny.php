@@ -64,9 +64,9 @@
         <a href="index.php?page=4">
           <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Handlevogn">
         </a>
+        <div id="badge">T</div>
       </button>
     </div>
   </nav>
 </header>
 
-<div id="badge"></div>

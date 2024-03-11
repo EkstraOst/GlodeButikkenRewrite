@@ -8,18 +8,9 @@
 <!-- Her kommer resultatene -->
 <?php
     //validate variables
-    $type = 0;
-    if (isset($_GET['type'])) {
-        $type = $_GET['type'];
-    }
-    
-    //søkeparametre
-    $param = 0;
-    if (isset($_GET['param'])) {
-        $param = $_GET['param'];
-    }
+    $type = $_SESSION['type'];
+    $param = $_SESSION['param'];
     $query = "";
-    echo $type . " " . $param;
     //type
     if ($type == 0) {
         $query = "SELECT * FROM PRODUKT";
@@ -56,11 +47,10 @@
                 $test = str_replace('%%undertittel%%', $subline, $test);
                 $test = str_replace('%%pris%%', $price, $test);
                 $test = str_replace('%%id%%', $id, $test);
-                $test = str_replace('%%bilde%%', $bilde, $test);
+                $test = str_replace('%%bilde%%', $bilde, getBilde($id));
                 echo $test;
 
                 //NIVAA: index.php?nivaa=4?page=4?pid=x
-
             }
             fclose($handle);
         }

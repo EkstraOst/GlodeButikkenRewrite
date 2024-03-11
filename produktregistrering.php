@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <!-- FELT: bilde -> pbilde -->
             <div class="form-group">
                 <label for="pbilde">Produktbilde:</label>
-                <input type="file" class="form-control-file" name="pbilde" id="pbilde">
+                <input type="file" accept="image/x-png,image/jpeg" class="form-control-file" name="pbilde" id="pbilde">
             </div>
             
             <br>

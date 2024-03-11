@@ -39,6 +39,7 @@
                 $test = str_replace('%%kategori%%', $kat, $test);
                 $test = str_replace('%%pris%%', $pris, $test);
                 $test = str_replace('%%autosalg%%', $autosalg, $test);
+                $test = str_replace('%%id%%', $id, $test);
                 if ($autosalg == '1') {
                     $test = str_replace('glode-ikkesalgbar', 'glode-salgbar', $test);
                 } else {
