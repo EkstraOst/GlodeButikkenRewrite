@@ -59,6 +59,16 @@
           <li><a href="https://glode.no/glode/tilsette/">Ta Kontakt</a></li>
         </ul>
       </div>
+      
+      <div class="search-box">
+        <!-- Icon for search-->
+        <i class='bx bx-search'></i>
+        <!--Container for the search input..-->
+        <div class="input-box">
+          <input type="text" placeholder="Search...">
+        </div>
+      </div>
+
       <!--Shopping cart button kodet av Amalie -->
       <button class="shoppingCartButton">
         <a href="index.php?page=4">
