@@ -89,12 +89,9 @@ function toggleMode() {
 
 //b
 
-
-let input = document.getElementById("myInput");
-
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    window.location.assign("index.php?side=2&type=3&param=" input.value);
-  }
+const node = document.getElementsByClassName("input1")[0];
+node.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+      window.location.assign("http://www.w3schools.com");
+    }
 });
