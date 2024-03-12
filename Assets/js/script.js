@@ -83,3 +83,13 @@ function toggleMode() {
     body.classList.remove('transition-theme');
   }, 1000); // Adjust the time according to your transition duration
 }
+
+
+
+
+//b
+
+let jsArrow = document.querySelector(".search-field");
+jsArrow.onclick = function() {
+ navLinks.classList.toggle("show3");
+}
