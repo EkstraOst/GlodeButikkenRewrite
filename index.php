@@ -71,7 +71,7 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param']
     <link rel="stylesheet" href="Assets/css/style_landing.css"/>
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
     <link rel="stylesheet" href="Assets/css/styleSearch.css"/>
-    <link rel="stylesheet" href="Assets/css/textOmOss.css"/>
+    <!--<link rel="stylesheet" href="Assets/css/textOmOss.css"/>-->
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
     <script type="text/javascript" src="Assets/js/script.js" defer></script>
