@@ -89,7 +89,12 @@ function toggleMode() {
 
 //b
 
-let jsArrow = document.querySelector(".search-field");
-jsArrow.onclick = function() {
- navLinks.classList.toggle("show3");
-}
+
+let input = document.getElementById("myInput");
+
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    window.location.assign("index.php?side=2&type=3&param=" input.value);
+  }
+});
