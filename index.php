@@ -59,7 +59,7 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param']
 $side = $_SESSION['page'];
 $type = $_SESSION['type'];
 $param = $_SESSION['param'];
-$uid = $$_SESSION['id'];
+$uid = $_SESSION['id'];
 
 
 
