@@ -65,7 +65,7 @@
         <i class='bx bx-search'></i>
         <!--Container for the search input..-->
         <div class="input-box">
-          <input type="text" class="search-field" placeholder="Søk etter produkter...">
+          <input type="text" id="searchbar" class="search-field" placeholder="Søk etter produkter...">
         </div>
       </div>
 

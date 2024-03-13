@@ -89,9 +89,9 @@ function toggleMode() {
 
 //b
 
-const node = document.getElementsByClassName("input1")[0];
+const node = document.getElementById("searchbar");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-      window.location.assign("http://www.w3schools.com");
+      window.location.assign("index.php?side=2&param=" + this.value);
     }
 });
