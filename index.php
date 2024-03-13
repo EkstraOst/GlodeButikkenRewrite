@@ -56,6 +56,11 @@ $_SESSION['page'] =  isset($_GET['page']) ? $_GET['page'] : $_SESSION['page'];
 $_SESSION['type'] =  isset($_GET['type']) ? $_GET['type'] : $_SESSION['type'];
 $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param'];
 
+$side = $_SESSION['page'];
+$type = $_SESSION['type'];
+$param = $_SESSION['param'];
+$uid = $$_SESSION['id'];
+
 
 
 ?>
@@ -88,6 +93,8 @@ $_SESSION['param'] = isset($_GET['param']) ? $_GET['param'] : $_SESSION['param']
     //HEADER
     include("Assets/templates/header1_ny.php"); 
 
+
+    echo $side . " " . $type . " " . $param;
     //SIDEVISNING
     //default:side 1 - hjem
     //side 2: søkeside (type=x, param=x, nivaa=?)
