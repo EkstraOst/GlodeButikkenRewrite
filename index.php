@@ -94,7 +94,7 @@ $uid = $$_SESSION['id'];
     include("Assets/templates/header1_ny.php"); 
 
 
-    echo $side . " " . $type . " " . $param;
+    echo $side . " " . $type . " " . $param . " " . $uid;
     //SIDEVISNING
     //default:side 1 - hjem
     //side 2: søkeside (type=x, param=x, nivaa=?)
