@@ -23,20 +23,20 @@
                     INNER JOIN SUPERKATEGORI s ON s.s_kategoriID = k.s_kategoriID
                     WHERE s.s_kategoriID = ?";
         
-        $stmt = $mysqli_prepare($query);
+        $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "d", $prodID);
         $prodID = $param;
     }
     if ($type == 2) { //SØK ETTER KATEGORI
         $query = "SELECT * FROM fullprodukt_view p WHERE p.kategoriID = ?";
-        $stmt = $mysqli_prepare($query);
+        $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "d", $prodID);
         $prodID = $param;
     }
     if ($type == 3) { //SØK ETTER TEKST
         $query =   "SELECT * from fullprodukt_view f 
                     WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
-        $stmt = $mysqli_prepare($query);
+        $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "ddd", $prodID, $prodID2, $prodID3);
         $prodID = $param;
         $prodID2 = $param;
