@@ -25,7 +25,6 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 echo "<div class='ordreskjema'>";
-print_r($result);
 while ($p = mysqli_fetch_assoc($result)) {
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale']);
 }
