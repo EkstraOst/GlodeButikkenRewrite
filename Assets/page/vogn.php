@@ -46,11 +46,11 @@ $result = mysqli_stmt_get_result($stmt);
 
 echo "<div class='ordreskjema'>";
 while ($p = mysqli_fetch_assoc($result)) {
-    printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale']);
+    printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
 }
 echo "</div>";
 
-function printVognLinje($name, $ut, $price, $id, $num, $total, $sale) {
+function printVognLinje($name, $ut, $price, $id, $num, $total, $sale, $bilde) {
     $handle = fopen("Assets/templates/vogn_item.html", "r");
     if ($handle) {
         while (($line = fgets($handle)) !== false) {
@@ -58,7 +58,9 @@ function printVognLinje($name, $ut, $price, $id, $num, $total, $sale) {
             $test = str_replace('%%undertittel%%', $ut, $test);
             $test = str_replace('%%pris%%', $price, $test);
             $test = str_replace('%%antall%%', $num, $test);
-            $test = str_replace('%%total%%', $total, $test);
+            $test = str_replace('%%totalpris%%', $total, $test);
+            $test = str_replace('%%id%%', $id, $test);
+            $test = str_replace('%%bilde%%', $bilde, $test);
             echo $test; 
         }
         fclose($handle);
