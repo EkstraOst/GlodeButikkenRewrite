@@ -45,8 +45,10 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 echo "<div class='ordreskjema'>";
+$totalpris = 0;
 while ($p = mysqli_fetch_assoc($result)) {
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
+    $totalpris = $p['totalpris'];
 }
 echo "</div>";
 
@@ -82,7 +84,7 @@ function printVognLinje($name, $ut, $price, $id, $num, $total, $sale, $bilde) {
         <a href="/Star/indexStar.html" class="buttonPayLink"> Ønsker du å gi oss en tilbakemelding?</a>
       </div>
       <div class="buttonPayPriceDiv">
-        <h3 class="buttonPayPrice">Total pris: 1,950.00</h3>
+        <h3 class="buttonPayPrice">Total pris: <?php echo $totalpris ?> </h3>
       </div>
       <div class="buttonPayBtnDiv">
         <button class="buttonPayBtn">Gå videre til betaling</button>
