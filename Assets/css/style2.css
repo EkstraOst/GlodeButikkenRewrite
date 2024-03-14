@@ -223,11 +223,34 @@ div.gallery img {
 
 
 
-
+//B test: ikke viktig 
 .glode-salgbar {
     background-color: black;
 }
 
 .glode-ikkesalgbar {
     background-color: red;
+}
+
+.ordreskjema {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 600px;
+    margin: auto;
+}
+
+.ordrelinje {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 5px;
+    width: 100%;
+    height: 30px;
+}
+
+.ordrelinje:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.ordrelinje:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
 }
