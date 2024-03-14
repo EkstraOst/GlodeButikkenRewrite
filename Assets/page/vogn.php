@@ -15,7 +15,7 @@ LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= 
 INNER JOIN VOGN_ITEM v ON v.produktID = p.produktID
 INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.produktID
 WHERE p.autosalg = 1
-AND v.kundeID = ?
+AND v.kundeID = 2
 GROUP BY p.produktID;";
 $stmt = mysqli_prepare($con, $query);
 mysqli_stmt_bind_param($stmt, "i", $kid);
@@ -26,7 +26,6 @@ $result = mysqli_stmt_get_result($stmt);
 echo "<div class='ordreskjema'>";
 print_r($result);
 while ($p = mysqli_fetch_assoc($result)) {
-    echo "OLE";
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['antall'], $p['totalpris'], $p['on_sale']);
 }
 echo "</div>";
