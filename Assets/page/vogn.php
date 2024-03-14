@@ -28,6 +28,8 @@
 
 //TODO: SKAL ORDRELINJEN OPPDATERES? I så fall er $_GET TINGEN
 
+$totalsum = 0;
+
 $query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
 IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
 LEFT JOIN RABATT r ON r.produktID = p.produktID
@@ -45,10 +47,9 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 echo "<div class='ordreskjema'>";
-$totalpris = 0;
 while ($p = mysqli_fetch_assoc($result)) {
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
-    $totalpris = $p['totalpris'];
+    $totalpris += $p['totalpris'];
 }
 echo "</div>";
 
