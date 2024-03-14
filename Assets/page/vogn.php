@@ -1,6 +1,26 @@
 <!-- HMTL FØR ORDRESKJEMA -->
 
-
+<main>
+  <section class="customerPosition">
+    <h2 class="positionText">Du er her: <a href="/index.html">Forside</a> <i class="positionArrow"></i> Handlekurv</h2>
+  </section>
+  <section class="shopItems">
+    <div class="cartHeader">
+      <h1 class="cartText">Handlekurv</h1>
+    </div>
+    <div class="shopItemsHeader">
+      <div class="shopItemsHeaderWrapperLeft"></div>
+      <div class="headerAmountDiv">
+        <h3 class="amountText">Antall</h3>
+      </div>
+      <div class="headerPriceDiv">
+        <h3 class="priceText">Pris</h3>
+      </div>
+      <div class="headerDeleteDiv">
+        <h3 deleteText>Slett</h3>
+      </div>
+    </div>
+    <div class="shopItemsDiv">
 
 
 <?php
@@ -48,6 +68,27 @@ function printVognLinje($name, $ut, $price, $id, $num, $total, $sale) {
 <!-- HMTL ETTER ORDRESKJEMA -->
 
 
+
+  <!-- KNAPPER OG BETALING -->
+  <section class="buttonPay">
+    
+    <div class="buttonPayDiv">
+      
+      <div class="buttonPayThankYou">
+        <h3>Takk for din Handel!</h3>
+        <h3>Hilsen fra butikken Placeholder</h3>
+        <a href="/Star/indexStar.html" class="buttonPayLink"> Ønsker du å gi oss en tilbakemelding?</a>
+      </div>
+      <div class="buttonPayPriceDiv">
+        <h3 class="buttonPayPrice">Total pris: 1,950.00</h3>
+      </div>
+      <div class="buttonPayBtnDiv">
+        <button class="buttonPayBtn">Gå videre til betaling</button>
+      </div>
+    </div>
+    
+  </section>
+</main>
 
 
 

@@ -1,11 +1,31 @@
-<div class="vogn_item">
-    <form action="index.php?side=4?from=%%antall%%" method="POST">
-        <div>%%navn%%</div>
-        <div>%%undertittel%%</div>
-        <div>%%pris%%</div>
-        <input type="number" name="antall" value="%%antall%%">
-        <input type="submit" value="Oppdater">
-        <input type="hidden" name="skjultID" value="%%id%%">
-        <div>%%total%%</div>
-    </form>
-</div>
+
+<div class="shopItemsDiv">
+      
+      <!-- Kode lånt av Sandra -->
+      <!-- ---------------------------------------------------------------------- -->
+      <section class="galleryV">
+        <!-- Additional elements and content specific to the article -->
+        <article class="contentV">
+          <img class="imgContentV" src="Assets/img/%%bilde%%" alt="Dette er et bilde av produktet, en HP ProBook 650 laptop.">
+          <h3>%%navn%%</h3>
+          <p>%%undertittel%%</p>
+          <h5>kr %%pris%%</h5>
+          <button class="show_more">Vis</button>
+        </article>
+      </section>
+      <!-- Slutt av lånt kode -->
+      
+      <div class="amountDiv">
+        
+        <input type="number" value="%%antall%%" class="amountInput">
+        <input type="hidden" name="id" value="%%id%%">
+      </div>
+      
+      <div class="priceDiv">
+        <h3>kr %%totalpris%%</h3>
+      </div>
+      <div class="deleteDiv">
+        <button class="deleteButton">X</button>
+      </div>
+    </div>
+  </section>
