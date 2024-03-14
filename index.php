@@ -74,6 +74,7 @@ $uid = $_SESSION['id'];
     <link rel="stylesheet" href="Assets/css/style2.css"/>
     <link rel="stylesheet" href="Assets/css/style_landing.css"/>
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
+    <link rel="stylesheet" href="Assets/css/vogn.css"/>
     <link rel="stylesheet" href="Assets/css/styleSearch.css"/>
     <!--<link rel="stylesheet" href="Assets/css/textOmOss.css"/>-->
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
