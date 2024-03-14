@@ -253,8 +253,9 @@ div.desc {
 }
 .vogn-item {
     float: left;
-    width: 20%;
+    width: 100%;
 }
+
 
 .ordrelinje:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
