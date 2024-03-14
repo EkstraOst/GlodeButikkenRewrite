@@ -253,6 +253,7 @@ div.desc {
 }
 .vogn-item {
     float: left;
+    width: 20$;
 }
 
 .ordrelinje:nth-child(odd) {
