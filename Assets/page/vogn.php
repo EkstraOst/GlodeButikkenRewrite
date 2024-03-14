@@ -84,7 +84,7 @@ function printVognLinje($name, $ut, $price, $id, $num, $total, $sale, $bilde) {
         <a href="/Star/indexStar.html" class="buttonPayLink"> Ønsker du å gi oss en tilbakemelding?</a>
       </div>
       <div class="buttonPayPriceDiv">
-        <h3 class="buttonPayPrice">Total pris: <?php echo $totalpris ?> </h3>
+        <h3 class="buttonPayPrice">Total pris: kr <?php echo $totalpris ?> ,-</h3>
       </div>
       <div class="buttonPayBtnDiv">
         <button class="buttonPayBtn">Gå videre til betaling</button>
