@@ -1,14 +1,14 @@
+<!-- HMTL FØR ORDRESKJEMA -->
+
+
+
+
 <?php
+//SKRIV ORDRESKJEMA
 
 //TODO: SKAL ORDRELINJEN OPPDATERES? I så fall er $_GET TINGEN
 
-
-
-
-
-
-
-$query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde , p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
+$query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
 IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
 LEFT JOIN RABATT r ON r.produktID = p.produktID
 LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= KAMPANJE.startdato) k ON k.kampanjeID = r.kampanjeID
@@ -18,20 +18,13 @@ WHERE p.autosalg = 1
 AND v.kundeID = ?
 GROUP BY p.produktID;";
 $stmt = mysqli_prepare($con, $query);
-mysqli_stmt_bind_param($stmt, "d", $kid);
+mysqli_stmt_bind_param($stmt, "i", $kid);
 $kid = $uid;
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt)
-?>
-<!-- HMTL FØR ORDRESKJEMA -->
 
-
-
-
-
-<?php
-//SKRIV ORDRESKJEMA
 echo "<div class='ordreskjema'>";
+print_r($result);
 while ($p = mysqli_fetch_assoc($result)) {
     echo "OLE";
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['antall'], $p['totalpris'], $p['on_sale']);
