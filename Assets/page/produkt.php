@@ -7,28 +7,33 @@
 
 <!-- Her kommer resultatene -->
 <?php
-    //validate variables
+    //Gjør sikkert søk etter produkt
+    $query = "SELECT * from fullprodukt_view WHERE produktID = ?";
+    $stmt = $mysqli_prepare($query);
+    mysqli_stmt_bind_param($stmt, "d", $prodID);
+    $prodID = $_SESSION['id'];
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    
+    //produktdata
+    $p = mysqli_fetch_assoc($result);
 
+    //gjør svarene litt mer håndterlige
+    $id = $p['id'];
+    $navn = $p['navn'];
+    $undertittel = $p['undertittel'];
+    $info = $p['info'];
+    $kategori = $p['kategori'];
+    $autosalg = $p['autosalg'];
+    $inventar = $p['inventar'];
+    $salg = $p['on_sale'];
+    $bilde = $p['bilde'];
+    $pris = $p['pris'];
 
-    $query = "SELECT PRODUKT.produktID, PRODUKT.inventar, PRODUKT.navn, PRODUKT.undertittel, PRODUKT.info, PRODUKT.pris, KATEGORI.navn as kategori, PRODUKT.bilde, PRODUKT.autosalg FROM PRODUKT
-              INNER JOIN KATEGORI ON KATEGORI.kategoriID = PRODUKT.kategoriID
-              WHERE PRODUKT.produktID = " . $_SESSION['param'];
-    //type
-    //utfør "query" av database og vis hver av resultatene gjennom printCard-funksjonen
-    //i dette tilfellet alle produktene i mockup-databasen (4stk).
-    if ($result = mysqli_query($con, $query)) {
-        while($row = mysqli_fetch_assoc($result)) {
-            printFullProduct($row['produktID'], $row['navn'], $row['undertittel'], $row['info'], $row['kategori'], $row['pris'], $row['autosalg'], $row['inventar']);
-        }
+    //skriv ut siden med riktige verdier satt inn
+    printFullProduct($id, $navn, $undertittel, $info, $bilde, $kategori, $pris, $autosalg, $inventar);
 
-        mysqli_free_result($result);
-    }
-
-    //avslutt databaseforbindelsen
-    mysqli_close($con);
-
-    //enkel "template-funksjon" konsept
-    function printFullProduct($id, $navn, $ut, $info, $kat, $pris, $autosalg, $inv) {
+    function printFullProduct($id, $navn, $ut, $info, $bilde, $kat, $pris, $autosalg, $inv) {
         $handle = fopen("Assets/templates/produktFull.html", "r");
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
@@ -37,6 +42,7 @@
                 $test = str_replace('%%info%%', $info, $test);
                 $test = str_replace('%%produktID%%', $id, $test);
                 $test = str_replace('%%kategori%%', $kat, $test);
+                $test = str_replace('%%bilde%%', $bilde, $test);
                 $test = str_replace('%%pris%%', $pris, $test);
                 $test = str_replace('%%autosalg%%', $autosalg, $test);
                 $test = str_replace('%%id%%', $id, $test);

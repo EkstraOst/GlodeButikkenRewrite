@@ -11,33 +11,60 @@
     $type = $_SESSION['type'];
     $param = $_SESSION['param'];
     $query = "";
+    $stmt = "";
     //type
-    if ($type == 0) {
-        $query = "SELECT * FROM PRODUKT";
+    if ($type == 0) { //SØK ETTER ALLE PRODUKTER
+        $query = "SELECT * FROM fullprodukt_view";
+        $stmt = mysqli_prepare($con, $query);
     }
-    if ($type == 1) {
-        $query = "SELECT * FROM PRODUKT p WHERE EXISTS (SELECT * FROM KATEGORI s WHERE s.s_kategoriID = " . $param . " AND p.kategoriID = s.kategoriID)" ;
+    if ($type == 1) { //SØK ETTER SUPERKATEGORI/OVERKATEGORI (ex. PC er OVERKATEGORI til Laptop og Stasjonær som er KATEGORI)
+        $query =   "SELECT * FROM fullprodukt_view p 
+                    INNER JOIN KATEGORI k ON k.kategoriID = p.kategoriID 
+                    INNER JOIN SUPERKATEGORI s ON s.s_kategoriID = k.s_kategoriID
+                    WHERE s.s_kategoriID = ?";
+        
+        $stmt = $mysqli_prepare($query);
+        mysqli_stmt_bind_param($stmt, "d", $prodID);
+        $prodID = $param;
     }
-    if ($type == 2) {
-        $query = "SELECT * FROM PRODUKT WHERE kategoriID ='" . $param . "'";
+    if ($type == 2) { //SØK ETTER KATEGORI
+        $query = "SELECT * FROM fullprodukt_view p WHERE p.kategoriID = ?";
+        mysqli_stmt_bind_param($stmt, "d", $prodID);
+        $prodID = $param;
     }
-    if ($type == 3) {
-        $query = "SELECT * FROM PRODUKT WHERE navn REGEXP_LIKE (" . $param . ") UNION SELECT * FROM PRODUKT WHERE info REGEXP_LIKE (". $param . ")";
+    if ($type == 3) { //SØK ETTER TEKST
+        $query =   "SELECT * from fullprodukt_view f 
+                    WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
+        mysqli_stmt_bind_param($stmt, "ddd", $prodID, $prodID2, $prodID3);
+        $prodID = $param;
+        $prodID2 = $param;
+        $prodID3 = $param;
     }
 
-    //utfør "query" av database og vis hver av resultatene gjennom printCard-funksjonen
-    //i dette tilfellet alle produktene i mockup-databasen (4stk).
-    if ($result = mysqli_query($con, $query)) {
-        while($row = mysqli_fetch_assoc($result)) {
-            printCard($row['navn'], $row['undertittel'], $row['pris'], $row['produktID'], $row['bilde']);
-        }
-
-        mysqli_free_result($result);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    
+    //produktdata
+    while ($p = mysqli_fetch_assoc($result)) {
+        printCard($p['navn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['bilde'], $p['inventar']);
     }
 
-    //avslutt databaseforbindelsen
+    //gjør svarene litt mer håndterlige
+    /*
+    $id = $p['id'];
+    $navn = $p['navn'];
+    $undertittel = $p['undertittel'];
+    $info = $p['info'];
+    $kategori = $p['kategori'];
+    $autosalg = $p['autosalg'];
+    $inventar = $p['inventar'];
+    $salg = $p['on_sale'];
+    $bilde = $p['bilde'];
+    $pris = $p['pris'];
+    */
+
     //enkel "template-funksjon" konsept
-    function printCard($name, $subline, $price, $id, $bilde) {
+    function printCard($name, $subline, $price, $id, $bilde, $inv) {
         $handle = fopen("Assets/templates/productcard.html", "r");
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
@@ -45,6 +72,8 @@
                 $test = str_replace('%%undertittel%%', $subline, $test);
                 $test = str_replace('%%pris%%', $price, $test);
                 $test = str_replace('%%id%%', $id, $test);
+                $test = str_replace('%%bilde%%', $bilde, $test);
+                $test = str_replace('%%inv%%', $inv, $test);
                 //$test = str_replace('%%bilde%%', $bilde, getBilde($id));
                 echo $test;
 

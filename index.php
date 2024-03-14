@@ -7,8 +7,7 @@ ini_set('display_errors', '1');
 function nyBruker($con) {
   $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
   if (mysqli_query($con, $query)) {
-    $last_id = mysqli_insert_id($con);
-    $_SESSION['id'] = $last_id;
+    $_SESSION['id'] = mysqli_insert_id($con);
   } else {
     echo "Noe gikk forferdelig galt. RIP in pieces";
     exit();
@@ -30,7 +29,7 @@ if (mysqli_connect_errno()) {
   exit();
 }
 
-session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true, true);
+session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
 session_start();
 
 //Finn id til bruker.
@@ -45,7 +44,7 @@ if (!isset($_SESSION['id'])) {
   echo "Kunne ikke skape anonym id";
   exit();
 }
-oppdaterBruker($con); //sett sist sett
+oppdaterBruker($con); //sist sett
 
 
 //ordne verdier for navigering og søk
@@ -101,11 +100,11 @@ $uid = $_SESSION['id'];
     //side 3: produktvisning; type=?, param=id
     //side 4: vogn.
     echo "<body>";
-    if ($_SESSION['page'] == 2) {
+    if ($side == 2) {
       include('Assets/page/sok.php');
-    } else if ($_SESSION['page'] == 3) {
+    } else if ($side == 3) {
       include('Assets/page/produkt.php');
-    } else if ($_SESSION['page'] == 4) {
+    } else if ($side == 4) {
       include('Assets/page/vogn.php');
     } else {
       include('Assets/page/hjem.php');
