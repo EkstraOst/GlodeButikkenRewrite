@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     
     //Legg til produktet i vogn
-    $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, NOW())");
+    $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, DATE(NOW()))");
     $stmt->bind_param("dd", $kid, $pid);
     $kid = $_SESSION['id'];
     $pid = $_GET['produktid'];
-    $_SESSION['testtest'] = $kid . " - " . "$pid";
+    //$_SESSION['testtest'] = $kid . " - " . "$pid";
     $stmt->execute();
 
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt2->execute();
     $stmt2->bind_result($antall);
     $stmt2->fetch();
+    echo $kid . " ";
 
-
-    echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
+    echo $antall . " " . $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
 }
