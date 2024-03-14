@@ -173,17 +173,17 @@ div.gallery img {
     border-radius: 5px ;
 }
 
-  div.desc {
+div.desc {
     padding: 15px;
     text-align: center;
     
 }
-  
-  * {
+
+* {
     box-sizing: border-box;
 }
-  
-  .responsive {
+
+.responsive {
     float: left;
     width: auto;
     margin-bottom: 50px;
@@ -200,12 +200,12 @@ div.gallery img {
         width: auto;
         flex-direction: column;
     } 
-
-      .responsive {
+    
+    .responsive {
         
         flex-direction: column;
     } 
-
+    
 }
 
 @media (max-width: 770px) {
@@ -213,8 +213,8 @@ div.gallery img {
         width: auto;
         flex-direction: column;
     } 
-
-      .responsive {
+    
+    .responsive {
         
         flex-direction: column;
     } 
@@ -223,7 +223,11 @@ div.gallery img {
 
 
 
-//B test: ikke viktig 
+
+
+
+
+
 .glode-salgbar {
     background-color: black;
 }
