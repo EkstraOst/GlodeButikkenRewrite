@@ -24,51 +24,37 @@
 
 
 <?php
+
 //SKRIV ORDRESKJEMA
 
 //TODO: SKAL ORDRELINJEN OPPDATERES? I så fall er $_GET TINGEN
 
-$totalsum = 0;
-
+//databasesøket som skal føkes etter.
+//Kort sagt; finn all mulig info om hvert av produktene i handlevognen til kunden som browser.
+//Dette inkluderer laveste pris hvis kampanjer og rabatt er involvert, samt antall
+//produkter + totalpris for den ordrelinjen
 $query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
 IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
-LEFT JOIN RABATT r ON r.produktID = p.produktID
-LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= KAMPANJE.startdato) k ON k.kampanjeID = r.kampanjeID
-INNER JOIN VOGN_ITEM v ON v.produktID = p.produktID
-INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.produktID
-WHERE p.autosalg = 1
-AND v.kundeID = ?
-GROUP BY p.produktID;";
-
-$query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
-IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
-
 LEFT JOIN RABATT r 
 ON r.produktID = p.produktID
-
-
 LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= KAMPANJE.startdato) k 
 ON k.kampanjeID = r.kampanjeID
-
-
 INNER JOIN VOGN_ITEM v 
 ON v.produktID = p.produktID
-
-
 INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1 AND kundeID = ? GROUP BY VOGN_ITEM.produktID) t 
 ON t.produktID = v.produktID
-
 WHERE p.autosalg = 1
-
 GROUP BY p.produktID;";
 
+//sikre søket, klargjør og kjør
 $stmt = mysqli_prepare($con, $query);
 $kid = $uid;
 mysqli_stmt_bind_param($stmt, "i", $kid);
 mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
+$result = mysqli_stmt_get_result($stmt); //alle resultatene lander her i $result som en type arraay
 
-while ($p = mysqli_fetch_assoc($result)) {
+$totalsum = 0;
+while ($p = mysqli_fetch_assoc($result)) { //hent ett og ett resultat til det er tomt - skriv ut produktkort med resultatet som html
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
     $totalsum += $p['totalpris'];
 }

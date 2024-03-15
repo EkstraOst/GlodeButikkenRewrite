@@ -7,10 +7,7 @@ session_start();
 */
 
 //DEBUG
-if (true) {
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-}
+if (true) { error_reporting(E_ALL); ini_set('display_errors', '1'); }
 
 //VARIABLER
 include("Assets/php/variables.php");

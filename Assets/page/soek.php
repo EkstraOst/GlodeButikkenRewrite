@@ -12,12 +12,17 @@
     $param = $_SESSION['param'];
     $query = "";
     $stmt = "";
-    //type
-    if ($type == 0) { //SØK ETTER ALLE PRODUKTER
+
+    //Søketype
+
+    //SØK ETTER ALLE PRODUKTER
+    if ($type == 0) { 
         $query = "SELECT * FROM fullprodukt_view";
         $stmt = mysqli_prepare($con, $query);
     }
-    if ($type == 1) { //SØK ETTER SUPERKATEGORI/OVERKATEGORI (ex. PC er OVERKATEGORI til Laptop og Stasjonær som er KATEGORI)
+
+    //SØK ETTER SUPERKATEGORI/OVERKATEGORI (ex. PC er OVERKATEGORI til Laptop og Stasjonær som er KATEGORI)
+    if ($type == 1) { 
         $query =   "SELECT * FROM fullprodukt_view p 
                     INNER JOIN KATEGORI k ON k.kategoriID = p.kategoriID 
                     INNER JOIN SUPERKATEGORI s ON s.s_kategoriID = k.s_kategoriID
@@ -27,13 +32,17 @@
         mysqli_stmt_bind_param($stmt, "d", $superkat);
         $superkat = $param;
     }
-    if ($type == 2) { //SØK ETTER KATEGORI
+
+    //SØK ETTER KATEGORI
+    if ($type == 2) { 
         $query = "SELECT * FROM fullprodukt_view p WHERE p.kategoriID = ?";
         $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "d", $kat);
         $kat = $param;
     }
-    if ($type == 3) { //SØK ETTER TEKST
+
+    //SØK ETTER TEKST (i navn, undertittel og info)
+    if ($type == 3) { 
         $query =   "SELECT * from fullprodukt_view f 
                     WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
         $stmt = mysqli_prepare($con, $query);
