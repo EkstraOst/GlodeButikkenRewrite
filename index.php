@@ -1,14 +1,10 @@
 <?php 
+session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
+session_start();
 
 /*
 =================================== SETUP ===================================
 */
-
-
-//COOKIE/SESSION OG ID
-session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
-session_start();
-giBrukerId($con);
 
 //DEBUG
 if (true) {
@@ -23,6 +19,7 @@ include("Assets/php/variables.php");
 include("Assets/php/functions.php");
 
 //DATABASETILKOBLING
+giBrukerId($con);
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
     echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut
@@ -81,7 +78,7 @@ $_SESSION['vogntall'] = $p['antall'];
 </head>
 
 <body>
-    
+
 <?php 
 /*
 =================================== SETUP ===================================
