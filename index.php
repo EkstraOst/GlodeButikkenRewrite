@@ -18,7 +18,7 @@ include("Assets/php/functions.php");
 //DATABASETILKOBLING OG ID
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
-    echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut
+    echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut en type tom-vogn.html greie?
     exit();
 }
 giBrukerId($con);
@@ -51,6 +51,7 @@ $result = mysqli_stmt_get_result($stmt);
 $p = mysqli_fetch_assoc($result);
 $_SESSION['vogntall'] = $p['antall'];
 
+$vogntall = $_SESSION['vogntall'];
 
 /*
 =================================== HTML HEADER ===================================
