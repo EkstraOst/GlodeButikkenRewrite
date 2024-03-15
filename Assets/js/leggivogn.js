@@ -4,11 +4,9 @@
 const collection = document.getElementsByClassName("leggivogn");
 for (const btn of collection) {
     btn.onclick = function() {
-        alert(btn.value);
         leggivogn(btn.value);
     }
 }
-alert("!");
 
 function leggivogn(produktid) {
     if (produktid == "") alert("ingen produktid sendt");
