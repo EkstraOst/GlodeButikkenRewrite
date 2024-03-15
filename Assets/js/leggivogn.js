@@ -4,7 +4,7 @@
 const collection = document.getElementsByClassName("leggivogn");
 for (const btn of collection) {
     btn.onclick = function() {
-        console.log(btn.value);
+        alert(btn.value);
         leggivogn(btn.value);
     }
 }
