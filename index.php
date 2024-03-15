@@ -105,13 +105,8 @@ $_SESSION['vogntall'] = $p['antall'];
     //HEADER
     include("Assets/templates/header1_ny.php"); 
 
-    print_r($_SESSION);
-    //echo $side . " " . $type . " " . $param . " " . $uid;
-    //SIDEVISNING
-    //default:side 1 - hjem
-    //side 2: søkeside (type=x, param=x, nivaa=?)
-    //side 3: produktvisning; type=?, param=id
-    //side 4: vogn.
+
+    //VELG SIDE Å VISE
     echo "<body>";
     if ($side == 2) {
       include('Assets/page/sok.php');
