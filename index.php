@@ -93,7 +93,7 @@ $uid = $_SESSION['id'];
     //HEADER
     include("Assets/templates/header1_ny.php"); 
 
-
+    print_r($_SESSION);
     //echo $side . " " . $type . " " . $param . " " . $uid;
     //SIDEVISNING
     //default:side 1 - hjem

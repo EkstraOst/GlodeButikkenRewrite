@@ -1,7 +1,8 @@
 <?php
 
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    session_start();
+    
     $con = new mysqli("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
     if ($con->connect_error) {
         die("Failed to connect to MySQL: " . $con->connect_error);
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, DATE(NOW()))");
     $stmt->bind_param("dd", $kid, $pid);
     $kid = $_SESSION['id'];
-    $pid = $_GET['produktid'];
+    $pid = $_GET['pid'];
     //$_SESSION['testtest'] = $kid . " - " . "$pid";
     $stmt->execute();
 
