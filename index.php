@@ -18,18 +18,21 @@ include("Assets/php/variables.php");
 //FUNKSJONER
 include("Assets/php/functions.php");
 
-//DATABASETILKOBLING
-giBrukerId($con);
+//DATABASETILKOBLING OG ID
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
     echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut
     exit();
 }
+giBrukerId($con);
 
 
 
-
-//ordne verdier for navigering og søk
+//SIDE-INNSTILLINGER 
+//page=typen innmat; søk, hjem, produkt-fullside, vogn..  
+//type=typen søk hvis søk eller produktside, 
+//param=søkeinnstilling (f.eks kategori=laptop fra meny))
+//uid=bruker-id - ref giBrukerID() i functions.php
 if (!isset($_SESSION['page'])) { $_SESSION['page'] = 1; }
 if (!isset($_SESSION['type'])) { $_SESSION['type'] = 0; }
 if (!isset($_SESSION['param'])) { $_SESSION['param'] = ".*"; }
@@ -42,7 +45,7 @@ $type = $_SESSION['type'];
 $param = $_SESSION['param'];
 $uid = $_SESSION['id'];
 
-//Finn antall varer i handlevogn
+//Finn antall varer i handlevogn. Brukes i header når den limes inn senere
 $query =   "SELECT COUNT(*) AS antall FROM VOGN_ITEM WHERE kundeID = ?";
 $stmt = mysqli_prepare($con, $query);
 mysqli_stmt_bind_param($stmt, "d", $uid);
@@ -54,6 +57,7 @@ $_SESSION['vogntall'] = $p['antall'];
 
 /*
 =================================== HTML HEADER ===================================
+dette er ren html etter "?>" og før "<?php"
 */
 ?>
 
@@ -82,14 +86,14 @@ $_SESSION['vogntall'] = $p['antall'];
 <?php 
 /*
 =================================== SETUP ===================================
-Her settes siden sammen. Alt annet var bare settings og sånt.
+Her settes siden sammen. Alt annet var bare settings og shit.
 */
 
 include("Assets/templates/header1_ny.php"); //HEADER
 
 //INNMAT
-if      ($side == 2) { include('Assets/page/sok.php'); } 
-else if ($side == 3) { include('Assets/page/produkt.php'); } 
+if      ($side == 2) { include('Assets/page/soek.php'); } 
+else if ($side == 3) { include('Assets/page/prod.php'); } 
 else if ($side == 4) { include('Assets/page/vogn.php'); } 
 else {                 include('Assets/page/hjem.php'); }
 
