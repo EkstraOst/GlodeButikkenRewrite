@@ -112,7 +112,6 @@ $_SESSION['vogntall'] = $p['antall'];
     include("Assets/templates/header1_ny.php"); 
 
 
-    print_r($_SESSION);
     //VELG SIDE Å VISE
     echo "<body>";
     if ($side == 2) {
