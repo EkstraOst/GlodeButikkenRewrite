@@ -13,8 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt->bind_param("dd", $kid, $pid);
     $kid = $_SESSION['id'];
     $pid = $_GET['pid'];
-    $stmt->execute();
-
+    try {
+        $stmt->execute();
+    } catch(error) {
+        //Kunne ikke legge til produkt (ikke salgbart, eller evt feil et sted).
+    }
 
     //finn antall produkter i vogn og skriv ut
     $kundeID = $kid;
