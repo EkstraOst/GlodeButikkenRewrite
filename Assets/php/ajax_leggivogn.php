@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
     //finn antall produkter i vogn og skriv ut
-    $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = " . $kid);
+    $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = " . $kundeID);
+    $kundeID = $kid;
     $stmt2->execute();
     $stmt2->bind_result($antall);
     $stmt2->fetch();

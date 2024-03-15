@@ -45,12 +45,10 @@ $kid = $uid;
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
-echo "<div class='ordreskjema'>";
 while ($p = mysqli_fetch_assoc($result)) {
     printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
     $totalsum += $p['totalpris'];
 }
-echo "</div>";
 
 function printVognLinje($name, $ut, $price, $id, $num, $total, $sale, $bilde) {
     $handle = fopen("Assets/templates/vogn_item.html", "r");
