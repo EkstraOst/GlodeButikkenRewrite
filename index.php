@@ -34,7 +34,7 @@ function giBrukerId($con) {
   
 }
 
-function oppdaterBruker($con) {
+function oppdaterBruker($con) { //TODO: bytt til mysqli-bind-param
   //oppdater sist-sett
   $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
   mysqli_query($con, $query);

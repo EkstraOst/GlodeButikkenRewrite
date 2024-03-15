@@ -55,7 +55,6 @@
 
             </ul>
           </li>
-          <li><a href="index.php?page=3">Om Oss</a></li>
           <li><a href="https://glode.no/glode/tilsette/">Ta Kontakt</a></li>
         </ul>
       </div>
