@@ -40,5 +40,5 @@ else if ($side == 3)  include('Assets/page/prod.php');
 else if ($side == 4)  include('Assets/page/vogn.php');  
 else                  include('Assets/page/hjem.php'); 
 
-include('Assets/templates/footer.html');
+include('Assets/templates/footer.php');
 echo "</body></html>";
