@@ -98,7 +98,7 @@ $_SESSION['vogntall'] = $p['antall'];
 
 
 <?php 
-
+  print_r($_SESSION);
 
     // === CONTENT ===
 
