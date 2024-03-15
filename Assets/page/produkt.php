@@ -10,8 +10,9 @@
     //Gjør sikkert søk etter produkt
     $query = "SELECT * from fullprodukt_view WHERE produktID = ?";
     $stmt = mysqli_prepare($con, $query);
-    mysqli_stmt_bind_param($stmt, "d", $prodID);
     $prodID = $_SESSION['id'];
+    mysqli_stmt_bind_param($stmt, "d", $prodID);
+    
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     
