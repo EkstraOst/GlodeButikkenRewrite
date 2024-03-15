@@ -1,27 +1,34 @@
 <?php 
+
+/*
+=================================== SETUP ===================================
+*/
+
+
+//COOKIE/SESSION OG ID
+session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
+session_start();
+giBrukerId($con);
+
 //DEBUG
 if (true) {
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
 }
+
 //VARIABLER
 include("Assets/php/variables.php");
 
 //FUNKSJONER
 include("Assets/php/functions.php");
 
-
-//Start session og koble til database
+//DATABASETILKOBLING
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
     echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut
     exit();
 }
-session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
-session_start();
 
-
-giBrukerId($con);
 
 
 
@@ -41,15 +48,17 @@ $uid = $_SESSION['id'];
 //Finn antall varer i handlevogn
 $query =   "SELECT COUNT(*) AS antall FROM VOGN_ITEM WHERE kundeID = ?";
 $stmt = mysqli_prepare($con, $query);
-mysqli_stmt_bind_param($stmt, "d", $_SESSION['id']);
+mysqli_stmt_bind_param($stmt, "d", $uid);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
-
-//produktdata
 $p = mysqli_fetch_assoc($result);
 $_SESSION['vogntall'] = $p['antall'];
-?>
 
+
+/*
+=================================== HTML HEADER ===================================
+*/
+?>
 
 <!DOCTYPE html>
 <html lang="nb" dir="ltr">
@@ -71,30 +80,27 @@ $_SESSION['vogntall'] = $p['antall'];
     <title>Gløde Data</title>
 </head>
 
-
+<body>
+    
 <?php 
+/*
+=================================== SETUP ===================================
+Her settes siden sammen. Alt annet var bare settings og sånt.
+*/
 
-// === CONTENT ===
+include("Assets/templates/header1_ny.php"); //HEADER
 
-//HEADER
-include("Assets/templates/header1_ny.php"); 
+//INNMAT
+if      ($side == 2) { include('Assets/page/sok.php'); } 
+else if ($side == 3) { include('Assets/page/produkt.php'); } 
+else if ($side == 4) { include('Assets/page/vogn.php'); } 
+else {                 include('Assets/page/hjem.php'); }
 
-//VELG SIDE Å VISE
-echo "<body>";
-if ($side == 2) {
-    include('Assets/page/sok.php');
-} else if ($side == 3) {
-    include('Assets/page/produkt.php');
-} else if ($side == 4) {
-    include('Assets/page/vogn.php');
-} else {
-    include('Assets/page/hjem.php');
-}
-echo "</body>";
 
-//FOOTER
-include('Assets/templates/footer1.html');
-
-// === END CONTENT ===
+include('Assets/templates/footer1.html'); //FOOTER
 ?>
+
+</body>
 </html>
+
+<!-- END OF LINE -->
