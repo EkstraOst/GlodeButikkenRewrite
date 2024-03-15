@@ -3,7 +3,8 @@
   echo '<h2 class="positionText">Du er her:';
 
   //Print div? span? w/e? for opptil 4 nivåer;
-  //1. Alle produkter (base), 2. superkategori (hvis spesifisert.. type PC, Tjenester), 3. kategori og 4. enkeltprodukt
+  //1. HJEM -> Superkategori(PC ex) -> Kategori(Laptop ex) -> Produkt
+  //2. Handlevogn regnes som nivå 2: superkategori, så:  HJEM -> Handlevogn
 
   //Finn visningsnivå
   $nivaa = isset($_SESSTION['nivaa']) ? $_SESSION['nivaa'] : 1;

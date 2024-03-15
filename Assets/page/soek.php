@@ -9,7 +9,7 @@
 <?php
     //validate variables
     $type = $_SESSION['type'];
-    $param = $_SESSION['param'];
+    $para = $_SESSION['param'];
     $query = "";
     $stmt = "";
 
@@ -30,7 +30,7 @@
         
         $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "d", $superkat);
-        $superkat = $param;
+        $superkat = $para;
     }
 
     //SØK ETTER KATEGORI
@@ -38,7 +38,7 @@
         $query = "SELECT * FROM fullprodukt_view p WHERE p.kategoriID = ?";
         $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "d", $kat);
-        $kat = $param;
+        $kat = $para;
     }
 
     //SØK ETTER TEKST (i navn, undertittel og info)
@@ -47,9 +47,9 @@
                     WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
         $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, "ddd", $tekst, $tekst2, $tekst3);
-        $tekst = $param;
-        $tekst2 = $param;
-        $tekst3 = $param;
+        $tekst = $para;
+        $tekst2 = $para;
+        $tekst3 = $para;
     }
 
     mysqli_stmt_execute($stmt);

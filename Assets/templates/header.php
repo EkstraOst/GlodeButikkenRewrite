@@ -32,7 +32,7 @@
                 while ($skrow = mysqli_fetch_assoc($result_sk)) {
                   //Superkategori-meny
                   echo '<li class="more">'; 
-                  echo  '<span><a href="index.php?page=2&type=1&param=' . $skrow['s_kategoriID'] . '">' . $skrow['navn'] . '</a>'; //TODO: fix link og GET koder for superkategori-søk
+                  echo  '<span><a href="index.php?page=2&type=1&para=' . $skrow['s_kategoriID'] . '">' . $skrow['navn'] . '</a>'; //TODO: fix link og GET koder for superkategori-søk
                   echo  "  <i class='bx bxs-chevron-right arrow more-arrow'></i>";
                   echo  '</span>';
                   echo  '<ul class="more-sub-menu sub-menu">';
@@ -41,7 +41,7 @@
                   $kat_query = "select * from KATEGORI k where exists (select * from PRODUKT p where p.kategoriID = k.kategoriID) AND k.s_kategoriID = '" . $skrow['s_kategoriID'] . "'";
                   if ($result_k = mysqli_query($con, $kat_query)) {
                     while ($krow = mysqli_fetch_assoc($result_k)) {
-                      echo '<li><a href="index.php?page=2&type=2&param=' . $krow['kategoriID'] . '">' . $krow['navn'] . '</a></li>';
+                      echo '<li><a href="index.php?page=2&type=2&para=' . $krow['kategoriID'] . '">' . $krow['navn'] . '</a></li>';
                     }
                   }
                   //avsluttende html
