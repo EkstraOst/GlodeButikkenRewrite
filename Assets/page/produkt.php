@@ -8,7 +8,7 @@
 <!-- Her kommer resultatene -->
 <?php
     //Gjør sikkert søk etter produkt
-    $query = "SELECT * from fullprodukt_view WHERE produktID = ?";
+    $query = "SELECT * from fullprodukt_view WHERE kundeID = ?";
     $stmt = mysqli_prepare($con, $query);
     $prodID = $_SESSION['id'];
     print_r($_SESSION);
