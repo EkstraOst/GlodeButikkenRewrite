@@ -24,23 +24,23 @@
                     WHERE s.s_kategoriID = ?";
         
         $stmt = mysqli_prepare($con, $query);
-        mysqli_stmt_bind_param($stmt, "d", $prodID);
-        $prodID = $param;
+        mysqli_stmt_bind_param($stmt, "d", $superkat);
+        $superkat = $param;
     }
     if ($type == 2) { //SØK ETTER KATEGORI
         $query = "SELECT * FROM fullprodukt_view p WHERE p.kategoriID = ?";
         $stmt = mysqli_prepare($con, $query);
-        mysqli_stmt_bind_param($stmt, "d", $prodID);
-        $prodID = $param;
+        mysqli_stmt_bind_param($stmt, "d", $kat);
+        $kat = $param;
     }
     if ($type == 3) { //SØK ETTER TEKST
         $query =   "SELECT * from fullprodukt_view f 
                     WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
         $stmt = mysqli_prepare($con, $query);
-        mysqli_stmt_bind_param($stmt, "ddd", $prodID, $prodID2, $prodID3);
-        $prodID = $param;
-        $prodID2 = $param;
-        $prodID3 = $param;
+        mysqli_stmt_bind_param($stmt, "ddd", $tekst, $tekst2, $tekst3);
+        $tekst = $param;
+        $tekst2 = $param;
+        $tekst3 = $param;
     }
 
     mysqli_stmt_execute($stmt);
