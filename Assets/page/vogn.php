@@ -51,8 +51,8 @@ AND v.kundeID = 16
 GROUP BY p.produktID;";
 
 $stmt = mysqli_prepare($con, $query);
-mysqli_stmt_bind_param($stmt, "i", $kid);
 $kid = $uid;
+mysqli_stmt_bind_param($stmt, "i", $kid);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
