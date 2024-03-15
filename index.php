@@ -64,7 +64,7 @@ $param = $_SESSION['param'];
 $uid = $_SESSION['id'];
 
 //Finn antall varer i handlevogn
-$query =   "SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = ?";
+$query =   "SELECT COUNT(*) AS antall FROM VOGN_ITEM WHERE kundeID = ?";
 $stmt = mysqli_prepare($con, $query);
 mysqli_stmt_bind_param($stmt, "d", $_SESSION['id']);
 mysqli_stmt_execute($stmt);
