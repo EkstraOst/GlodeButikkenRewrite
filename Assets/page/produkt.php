@@ -19,7 +19,7 @@
     $p = mysqli_fetch_assoc($result);
 
     //gjør svarene litt mer håndterlige
-    $id = $p['id'];
+    $id = $p['produktID'];
     $navn = $p['navn'];
     $undertittel = $p['undertittel'];
     $info = $p['info'];
