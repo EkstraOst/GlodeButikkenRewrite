@@ -1,54 +1,22 @@
 <?php 
 //DEBUG
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-//VARS
-$vogntall = 0;
+if (true) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+}
+//VARIABLER
+include("Assets/php/variables.php");
 
 //FUNKSJONER
-function nyBruker($con) {
-  $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
-  if (mysqli_query($con, $query)) {
-    $_SESSION['id'] = mysqli_insert_id($con);
-  } else {
-    echo "Noe gikk forferdelig galt. RIP in pieces";
-    exit();
-  }
-}
-
-function giBrukerId($con) {
-  if (!isset($_SESSION['id'])) { //ingen spor av bruker i nettleser
-    nyBruker($con);
-  } else { //Spor etter bruker - sjekk om tilsvarende bruker er i databasen
-    $query = "SELECT * FROM KUNDE WHERE kundeID = " . $_SESSION['id'];
-    $stmt = mysqli_prepare($con, $query);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    if (mysqli_num_rows($result) == 0) { //ingen bruker i db
-      nyBruker($con);
-    } else { //bruker i db.
-      oppdaterBruker($con);
-    }
-  }
-  
-}
-
-function oppdaterBruker($con) { //TODO: bytt til mysqli-bind-param
-  //oppdater sist-sett
-  $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
-  mysqli_query($con, $query);
-  //setcookie("id", $_SESSION['id'], time()+3600*24*14);
-}
+include("Assets/php/functions.php");
 
 
 //Start session og koble til database
 $con = mysqli_connect("glodedatano01.mysql.domeneshop.no", "glodedatano01", "Andre-nv-belma-9nx", "glodedatano01");
 if (mysqli_connect_errno()) {
-  echo "Noe gikk galt: " . mysqli_connect_error();
-  exit();
+    echo "Noe gikk galt: " . mysqli_connect_error(); //TODO: Skal vi skrive ut
+    exit();
 }
-
 session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
 session_start();
 
@@ -80,54 +48,53 @@ $result = mysqli_stmt_get_result($stmt);
 //produktdata
 $p = mysqli_fetch_assoc($result);
 $_SESSION['vogntall'] = $p['antall'];
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="nb" dir="ltr">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="Assets/css/styleLp.css"/>
     <link rel="stylesheet" href="Assets/css/style2.css"/>
     <link rel="stylesheet" href="Assets/css/style_landing.css"/>
     <link rel="stylesheet" href="Assets/css/styleMeny.css"/>
     <link rel="stylesheet" href="Assets/css/vogn.css"/>
     <link rel="stylesheet" href="Assets/css/styleSearch.css"/>
-    <!--<link rel="stylesheet" href="Assets/css/textOmOss.css"/>-->
     <link rel="stylesheet" href="Assets/css/mediaQueries.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
     <script type="text/javascript" src="Assets/js/script.js" defer></script>
     <script type="text/javascript" src="Assets/js/leggivogn.js" defer></script>
+
     <title>Gløde Data</title>
-  </head>
+</head>
 
 
 <?php 
 
-    // === CONTENT ===
+// === CONTENT ===
 
-    //HEADER
-    include("Assets/templates/header1_ny.php"); 
+//HEADER
+include("Assets/templates/header1_ny.php"); 
 
+//VELG SIDE Å VISE
+echo "<body>";
+if ($side == 2) {
+    include('Assets/page/sok.php');
+} else if ($side == 3) {
+    include('Assets/page/produkt.php');
+} else if ($side == 4) {
+    include('Assets/page/vogn.php');
+} else {
+    include('Assets/page/hjem.php');
+}
+echo "</body>";
 
-    //VELG SIDE Å VISE
-    echo "<body>";
-    if ($side == 2) {
-      include('Assets/page/sok.php');
-    } else if ($side == 3) {
-      include('Assets/page/produkt.php');
-    } else if ($side == 4) {
-      include('Assets/page/vogn.php');
-    } else {
-      include('Assets/page/hjem.php');
-    }
-    echo "</body>";
+//FOOTER
+include('Assets/templates/footer1.html');
 
-    //FOOTER
-    include('Assets/templates/footer1.html');
-
-    // === END CONTENT ===
-  ?>
+// === END CONTENT ===
+?>
 </html>

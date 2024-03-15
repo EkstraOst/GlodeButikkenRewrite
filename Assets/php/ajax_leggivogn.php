@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt2->bind_result($antall);
     $stmt2->fetch();
 
-    //Lagre vogntall i $_SESSIN plus send tallet som svar til ajax.
+    //Lagre vogntall i $_SESSION plus send tallet som svar til ajax.
     $_SESSION['vogntall'] = $antall;
     echo $antall;
 }

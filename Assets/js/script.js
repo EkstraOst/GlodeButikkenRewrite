@@ -89,11 +89,40 @@ function toggleMode() {
 
 
 
-//b
+//bjørnar
 
+//enter = søk i søkebar
+//starter index-siden med instruksjoner om å vise søkeresultater (page=2) og søketype er fritekst (type=3)
+//og teksten som skal søkes etter er node.value (param=...)
 const node = document.getElementById("searchbar");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-      window.location.assign("index.php?page=2&param=" + node.value);
+      window.location.assign("index.php?page=2&type=3&param=" + node.value);
     }
 });
+
+//hvert produktkort får lagt inn spesifikt funksjonskall så "legg i vogn"-knappen vet hvilket av kortene som har blitt trykt på
+//Hver button vil ha value = produkt-id til produktet de representerer.
+//Så legger inn et kall til leggivogn() med det tallet som parameter. leggivogn(11) f.eks.
+const collection = document.getElementsByClassName("leggivogn");
+for (const btn of collection) {
+    btn.onclick = function() {
+        leggivogn(btn.value);
+    }
+}
+
+
+//Denne funksjonen sjekker ut en liten nettside i skjul. (ajax_leggivogn.php?pid=$produktID)
+//Den siden legger produktet i handlevognen i databasen, og sender et tall på
+//hvor mange produktor det nå er totalt i vognen. (...innerHTML = this.responseText...)
+function leggivogn(produktid) {
+    if (produktid == "") alert("ingen produktid sendt");
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("badge").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "Assets/php/ajax_leggivogn.php?pid=" + produktid, true);
+    xhttp.send();
+}
