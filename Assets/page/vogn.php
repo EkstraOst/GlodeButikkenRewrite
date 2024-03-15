@@ -47,7 +47,7 @@ LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= 
 INNER JOIN VOGN_ITEM v ON v.produktID = p.produktID
 INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.produktID
 WHERE p.autosalg = 1
-AND v.kundeID = 16
+AND v.kundeID = ?
 GROUP BY p.produktID;";
 
 $stmt = mysqli_prepare($con, $query);
