@@ -11,6 +11,7 @@
     $query = "SELECT * from fullprodukt_view WHERE produktID = ?";
     $stmt = mysqli_prepare($con, $query);
     $prodID = $_SESSION['id'];
+    echo $prodID . " ----------- " . $prodID;
     mysqli_stmt_bind_param($stmt, "d", $prodID);
     
     mysqli_stmt_execute($stmt);
