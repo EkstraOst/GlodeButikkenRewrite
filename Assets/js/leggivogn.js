@@ -8,6 +8,7 @@ for (const btn of collection) {
         leggivogn(btn.value);
     }
 }
+alert("!");
 
 function leggivogn(produktid) {
     if (produktid == "") alert("ingen produktid sendt");
