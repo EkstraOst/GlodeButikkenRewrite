@@ -24,5 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt2->fetch();
     //echo $kid . " ";
 
+    $_SESSION['vogntall'] = $antall;
     echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
 }

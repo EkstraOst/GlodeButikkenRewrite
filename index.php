@@ -3,6 +3,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+//VARS
+$vogntall = 0;
+
 //FUNKSJONER
 function nyBruker($con) {
   $query = "INSERT INTO KUNDE (sist_sett) VALUES (NOW())";
@@ -60,7 +63,16 @@ $type = $_SESSION['type'];
 $param = $_SESSION['param'];
 $uid = $_SESSION['id'];
 
+//Finn antall varer i handlevogn
+$query =   "SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = ?";
+$stmt = mysqli_prepare($con, $query);
+mysqli_stmt_bind_param($stmt, "d", $_SESSION['id']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
+//produktdata
+$p = mysqli_fetch_assoc($result);
+$_SESSION['vogntall'] = $p['antall'];
 
 ?>
 
