@@ -39,6 +39,17 @@ INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE 
 WHERE p.autosalg = 1
 AND v.kundeID = ?
 GROUP BY p.produktID;";
+
+$query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
+IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
+LEFT JOIN RABATT r ON r.produktID = p.produktID
+LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= KAMPANJE.startdato) k ON k.kampanjeID = r.kampanjeID
+INNER JOIN VOGN_ITEM v ON v.produktID = p.produktID
+INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.produktID
+WHERE p.autosalg = 1
+AND v.kundeID = 16
+GROUP BY p.produktID;";
+
 $stmt = mysqli_prepare($con, $query);
 mysqli_stmt_bind_param($stmt, "i", $kid);
 $kid = $uid;
