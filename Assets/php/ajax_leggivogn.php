@@ -9,22 +9,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     
     //Legg til produktet i vogn
-    $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, DATE(NOW()))");
+    $stmt = $con->prepare("INSERT INTO VOGN_ITEM (kundeID, produktID, dato) VALUES (?, ?, NOW())");
     $stmt->bind_param("dd", $kid, $pid);
     $kid = $_SESSION['id'];
     $pid = $_GET['pid'];
-    //$_SESSION['testtest'] = $kid . " - " . "$pid";
     $stmt->execute();
 
 
     //finn antall produkter i vogn og skriv ut
     $kundeID = $kid;
-    $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = " . $kundeID);
+    $stmt2 = $con->prepare("SELECT COUNT(*) FROM VOGN_ITEM WHERE kundeID = ?");
+    $stmt2->bind_param("i", $kundeID);
     $stmt2->execute();
     $stmt2->bind_result($antall);
     $stmt2->fetch();
-    //echo $kid . " ";
 
+    //Lagre vogntall i $_SESSIN plus send tallet som svar til ajax.
     $_SESSION['vogntall'] = $antall;
-    echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
+    echo $antall;
 }
