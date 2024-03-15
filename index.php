@@ -17,11 +17,28 @@ function nyBruker($con) {
   }
 }
 
+function giBrukerId($con) {
+  if (!isset($_SESSION['id'])) { //ingen spor av bruker i nettleser
+    nyBruker($con);
+  } else { //Spor etter bruker - sjekk om tilsvarende bruker er i databasen
+    $query = "SELECT * FROM KUNDE WHERE kundeID = " . $_SESSION['id'];
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($result) == 0) { //ingen bruker i db
+      nyBruker($con);
+    } else { //bruker i db.
+      oppdaterBruker($con);
+    }
+  }
+  
+}
+
 function oppdaterBruker($con) {
   //oppdater sist-sett
   $query = "UPDATE KUNDE SET sist_sett = NOW() WHERE kundeID = " . $_SESSION['id'];
   mysqli_query($con, $query);
-  setcookie("id", $_SESSION['id'], time()+3600*24*14);
+  //setcookie("id", $_SESSION['id'], time()+3600*24*14);
 }
 
 
@@ -35,19 +52,9 @@ if (mysqli_connect_errno()) {
 session_set_cookie_params(60*60*24*14, '/; samesite='. "lax", $_SERVER['HTTP_HOST'], true);
 session_start();
 
-//Finn id til bruker.
-if (!isset($_SESSION['id'])) {
-  if (isset($_COOKIE['id'])) {
-    $_SESSION['id'] = $_COOKIE['id'];
-  } else {
-    nyBruker($con);
-  }
-}
-if (!isset($_SESSION['id'])) {
-  echo "Kunne ikke skape anonym id";
-  exit();
-}
-oppdaterBruker($con); //sist sett
+
+giBrukerId($con);
+
 
 
 //ordne verdier for navigering og søk
