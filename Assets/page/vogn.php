@@ -43,7 +43,7 @@ $stmt = mysqli_prepare($con, $query);
 $kid = $uid;
 mysqli_stmt_bind_param($stmt, "i", $kid);
 mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt); //alle resultatene lander her i $result som en type arraay
+$result = mysqli_stmt_get_result($stmt); //alle resultatene lander her i $result som en type array
 
 $totalsum = 0;
 while ($p = mysqli_fetch_assoc($result)) { //hent ett og ett resultat til det er tomt - skriv ut produktkort med resultatet som html
@@ -68,10 +68,3 @@ while ($p = mysqli_fetch_assoc($result)) { //hent ett og ett resultat til det er
         </div>
     </section>
 </main>
-
-
-
-
-
-
-<!-- SLUTT -->
