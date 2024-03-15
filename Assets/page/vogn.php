@@ -45,10 +45,10 @@ IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM P
 LEFT JOIN RABATT r ON r.produktID = p.produktID
 LEFT JOIN (SELECT * FROM KAMPANJE WHERE NOW() < KAMPANJE.sluttdato AND NOW() >= KAMPANJE.startdato) k ON k.kampanjeID = r.kampanjeID
 INNER JOIN VOGN_ITEM v ON v.produktID = p.produktID
-INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.pro	duktID
+INNER JOIN (SELECT VOGN_ITEM.produktID, COUNT(*) AS antall FROM VOGN_ITEM WHERE IFNULL(VOGN_ITEM.solgt, 0) != 1  GROUP BY VOGN_ITEM.produktID) t ON t.produktID = v.produktID
 WHERE p.autosalg = 1
 AND v.kundeID = ?
-GROUP BY p.produktID;";
+GROUP BY p.produktID";
 
 $stmt = mysqli_prepare($con, $query);
 $kid = $uid;
