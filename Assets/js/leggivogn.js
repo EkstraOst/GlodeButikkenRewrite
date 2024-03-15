@@ -3,7 +3,10 @@
 
 const collection = document.getElementsByClassName("leggivogn");
 for (const btn of collection) {
-    btn.onclick = function() {leggivogn(btn.value)};
+    btn.onclick = function() {
+        console.log(btn.value);
+        leggivogn(btn.value);
+    }
 }
 
 function leggivogn(produktid) {
