@@ -74,7 +74,7 @@
         <a href="index.php?page=4">
           <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Handlevogn">
         </a>
-        <div id="badge"><?php echo $vogntall ?></div>
+        <div id="badge"><?php echo $_SESSION['vogntall']; ?></div>
       </button>
     </div>
   </nav>
