@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt2->execute();
     $stmt2->bind_result($antall);
     $stmt2->fetch();
-    echo $kid . " ";
+    //echo $kid . " ";
 
-    echo $antall . " " . $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
+    echo $antall; //Dette tallet er svaret js/ajax får tilbake. Et tall som legges i badge.
 }
