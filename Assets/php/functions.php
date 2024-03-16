@@ -42,7 +42,7 @@ function antallVogn($con) {
 
 
 
-function printCard($name, $subline, $price, $id, $bilde, $inv) {
+function printCard($name, $subline, $price, $id, $bilde, $inv, $asalg) {
     $handle = fopen("Assets/templates/productcard.html", "r");
     if ($handle) {
         while (($line = fgets($handle)) !== false) {
@@ -52,6 +52,11 @@ function printCard($name, $subline, $price, $id, $bilde, $inv) {
             $test = str_replace('%%id%%', $id, $test);
             $test = str_replace('%%bilde%%', $bilde, $test);
             $test = str_replace('%%inv%%', $inv, $test);
+            if ($asalg != 1) {
+                $test = str_replace('glode-salgbar', 'glode-ikkesalgbar', $test);
+            } else {
+                $test = str_replace('glode-ikkesalgbar', 'glode-salgbar', $test);
+            }
             //$test = str_replace('%%bilde%%', $bilde, getBilde($id));
             echo $test;
 
