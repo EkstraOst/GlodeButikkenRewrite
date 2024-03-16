@@ -54,9 +54,9 @@ function printCard($name, $subline, $price, $id, $bilde, $inv, $asalg) {
             $test = str_replace('%%inv%%', $inv, $test);
             if ($asalg != 1) {
                 $test = str_replace('glode-salgbar', 'glode-ikkesalgbar', $test);
-                $test = str_replace('%%AUTOSALG_DIALOG%%', 'Ta kontakt for pris', $test);
+                $test = str_replace('%%autosalg_dialog%%', 'Ta kontakt for pris', $test);
             } else {
-                $test = str_replace('%%AUTOSALG_DIALOG%%', 'Legg i vogn', $test);
+                $test = str_replace('%%autosalg_dialog%%', 'Legg i vogn', $test);
             }
             //$test = str_replace('%%bilde%%', $bilde, getBilde($id));
             echo $test;
