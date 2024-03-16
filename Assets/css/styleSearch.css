@@ -3,7 +3,7 @@
 
 /* Body styling - flex container with space-between, align-items, flex-wrap, and margin */
 body {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
