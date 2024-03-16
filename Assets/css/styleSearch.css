@@ -250,7 +250,7 @@ main {
 
 .list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-right: 1140px;
     width: 100vw;;
     
