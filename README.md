@@ -11,7 +11,7 @@ Database fungerer som den skal så langt - 95% av koden lagt inn.
 
     TODO: Admin-panel. Bruker bootstrap så fin øving for de fleste - bootstrap er et mulig alternativ på fremtidige sider vi lager.
 
-
+Prøv ut siden og se om dere finner noen feil - gjerne rapporter på trello på bug
 
 
 
