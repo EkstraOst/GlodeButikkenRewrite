@@ -93,7 +93,7 @@ function toggleMode() {
 
 //enter = søk i søkebar
 //starter index-siden med instruksjoner om å vise søkeresultater (page=2) og søketype er fritekst (type=3)
-//og teksten som skal søkes etter er node.value (param=...)
+//og teksten som skal søkes etter er node.value (para=...)
 const node = document.getElementById("searchbar");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {

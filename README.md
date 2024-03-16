@@ -1,29 +1,15 @@
-Rewrite av Bjørnar. 80% på plass.
+BACKEND:
+Database fungerer som den skal så langt - 95% av koden lagt inn.
 
-• Opprettet "page" mappe for de forskjellige sidene.
+    TODO: Design og styling må ferdiggjøres - CSS kontrolleres
 
-• Søkeside på plass (konsept)
+    TODO: Mulighet for å oppdatere ordrelinjene i vogn - backend
 
-• Database fungerer
+    TODO: Kontaktskjema. Modal-dialog?
 
-• Meny (navbar) autogenererer produktliste basert på databasen
+    TODO: Bilder
 
-• Alt unødvendig har blitt fjernet.
-
-
-TODO:
-
-Produktkort-visning for resultatsiden (søk).
-
-Dark/light-mode må sees på.
-
-Rabatt/Kampanje må integreres med søkeresultatene (plasseres først på siden).
-
-Login til admin-panel. (Kan vente)
-
-Bilder må sorteres og systematiseres - og bildestøtte må legges til databasen. (For så vidt gjort)
-
-- Mandag 11.mars skal betaversjon være online.
+    TODO: Admin-panel. Bruker bootstrap så fin øving for de fleste - bootstrap er et mulig alternativ på fremtidige sider vi lager.
 
 
 
