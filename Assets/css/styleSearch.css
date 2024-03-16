@@ -42,8 +42,8 @@ main {
 
 /* Styling for the product gallery section, - Sandra */
 .gallery {
-    width: 100%; /* Set width for each gallery section */
-    height: 100%; /* attempted code -Polly*/
+    width: 33%; /* Set width for each gallery section */
+    height: 150%; /* attempted code -Polly*/
     margin-bottom: 5px; /* Add margin at the bottom of each gallery section */  
 }
 
