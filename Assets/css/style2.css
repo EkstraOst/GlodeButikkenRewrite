@@ -229,7 +229,8 @@ div.desc {
 
 
 .glode-salgbar {
-    background-color: black;
+    background-color: rgb(82, 105, 157);
+    color: white;
 }
 
 .glode-ikkesalgbar {
