@@ -38,15 +38,19 @@
   }
 
   /* La til kode for å få DarkMode til å fungere skikkelig på siden. -Tony */
-.dark-mode .feature .pLP {
+.dark-mode .feature {
     background-color: #313131;
-    color: #f2f2f2;
+    /* color: #f2f2f2; */
     margin-right: 25px;
 }
 
-.dark-mode .intro .genInfo .main_title .h2LP .h3LP .pLP {
+.dark-mode .intro {
     background-color: #313131;
-    color: #f2f2f2;
+    /* color: #f2f2f2; */
+}
+
+.dark-mode {
+  color: #f2f2f2;
 }
 
 /* .dark-mode .main_title .h2LP .h3LP .pLP .titleHeader .h3About .AboutH3 .aboutInfo .olOM {
@@ -90,7 +94,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 95%;
   }
   
   /* SLIDE TEXT animasjon */

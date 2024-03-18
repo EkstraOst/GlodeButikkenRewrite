@@ -4,6 +4,9 @@ footer {
     color: var(--textWhite);
     padding: 10px 20px;
     text-align: left;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
   }
   
   .footer-btns {

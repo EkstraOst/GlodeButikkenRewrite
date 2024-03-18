@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="popout-style.css">
+        <!-- Fontawesome CDN Link -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+         <script src="scriptStar.js" defer></script>
+    
+        <title>Popout Window</title>
+
+    </head>
+
+<body>
+    <main>
+        <!--Viser kundeanmeldelser og stjerne uten popout window-->
+        <a href="#" id="popoutWindow">
+            Kundeanmeldelser
+        </a>
+        <span class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </span>
+    </main>
+
+    <!-- Overlay and Popup -->
+    <div class="overlay"></div>
+    <div class="popup">
+        <span class="close-btn">&times;</span>
+        <!-- Add your popup content here -->
+        <main>
+            <section>
+                <div class="rating_box">
+                    <h3>Kundeanmeldelser</h3>
+                    <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                
+            </section>
+    
+            <section class="kommentar_felt">
+                <!--kommentar felt-->
+               <div>
+                   <form action="#" method="post" onsubmit="return false;">
+                       
+                       <label for="yourInput" class="your_input"></label>
+                       <input type="text" id="yourInput" name="yourInput" placeholder="Tittel">
+    
+                       <label for="vurdering" id="your_input"></label>
+                       <input type="text" id="vurdering" name="vurdering" placeholder="Vurdering">
+                       
+                       <label for="name" class="your_input"></label>
+                       <input type="text" id="name" name="name" placeholder="Brukar Navne">
+                       
+                       <label for="email" class="your_input"></label>
+                       <input type="text" id="email" name="email" placeholder="E-post">
+      
+                   </form>
+                   <!-- Submit button -->
+                   <input type="submit" class="submit_button" value="Send">  
+               </div>
+           </section>
+        </main>   
+    </div>
+</body>
+</html>
