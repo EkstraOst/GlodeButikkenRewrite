@@ -43,7 +43,11 @@ function antallVogn($con) {
 
 
 function printCard($name, $subline, $price, $id, $bilde, $inv, $asalg) {
-    $handle = fopen("Assets/templates/productcard.html", "r");
+    $templ = "Assets/templates/productcard.html";
+    if ($asalg != 1) {
+        $templ = "Assets/templates/productcard_sale.html";
+    }
+    $handle = fopen($templ, "r");
     if ($handle) {
         while (($line = fgets($handle)) !== false) {
             $test = str_replace('%%navn%%', $name, $line);
