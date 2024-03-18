@@ -43,9 +43,9 @@ function antallVogn($con) {
 
 
 function printCard($name, $subline, $price, $id, $bilde, $inv, $asalg) {
-    $templ = "Assets/templates/productcard.html";
-    if ($asalg != 1) {
-        $templ = "Assets/templates/productcard_sale.html";
+    $templ = "Assets/templates/productcard_sale.html";
+    if ($asalg == 1) {
+        $templ = "Assets/templates/productcard.html";
     }
     $handle = fopen($templ, "r");
     if ($handle) {
