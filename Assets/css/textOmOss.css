@@ -2,22 +2,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 /*Styling kode av Trym og Amalie*/
 
-/* Fargepallet - kodet av Tiril */
-:root {
-    /* LIGHT MODE */
-    /* Main colors */
-    --mainLightBackground: #f0fff0;
-    --mainOrange: #fb5607;
-    --dropMenu: #808080;
-    --textWhite: #ffffff;
-    --mainBlack: #222222;
-    --footer: #333333;
-    /* Produkt oversikt */
-    --cardBackground: #f2f2f2;
-    /* Produkt side */
-    --boxBackground: #d4d4d4;
-    --buttonShadow: 0 10px 20px -8px #000000;
-  }
 
 * {
     box-sizing: border-box;
