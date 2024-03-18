@@ -1,0 +1,222 @@
+/* Kodet av Tiril */
+
+:root {
+    --mainOrange: #fb5607;
+    --textButton: #ffffff;
+}
+
+
+.bodyPT {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Rundt bilde og informasjon om produktet */
+.sectionPT {
+    font-size: 1.25em;
+    display: flex;
+    padding-top: 100px;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+/* Div rundt bilde */
+.imgPT {
+    height: 10%;
+    width: 50%;    
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Produkt bilde */
+.productImgPT {
+    width: 90%;    
+    height: 50%; 
+}
+
+/*div med den viktigaste informasjonen om produktet */
+.informationPT {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-left: 50px;
+}
+
+/* Overskriften til produktet */
+.headProduct {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Spesifikasjoner på produktet */
+.specs {
+    margin: 0;
+}
+
+/* stk tekst */
+.stk {
+    padding: 0;
+}
+
+/* Pris tekst */
+.nok {
+    color: var(--mainOrange);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* inntastings felt antall */
+.inputText {
+    width: 40px;
+}
+
+/* Handlevogn knapp */
+.addToCartBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 25px;
+    margin-left: 10px;
+    background-color: var(--mainOrange);
+    border: none;
+    color: var(--textButton);
+    font-size: 19px;
+    padding: 16px;
+    width: 230px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 7); 
+}
+
+/*La til litt riktig farge til den midletidige linken i knappen  -Mvh Polly*/
+.tempLinkShop {
+    color: honeydew;
+}
+
+/* div som har form og knapp */
+.formAndButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* form */
+.form {
+    margin: 0;
+}
+
+/* Meir informasjon om produktet */
+.moreInformation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+.moreText {
+    font-weight: 500;
+}
+
+/* Section Relaterte produkter */
+.relatedProducts {
+    padding-top: 100px;
+    margin-left: 20px;
+}
+
+.headerRelated {
+    font-weight: 500;
+}
+
+.textRelated {
+    font-size: 20px;
+}
+
+.relatedNok {
+    color: var(--textColorBold);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.imageRelated {
+    height: 100px;
+    width: 100px;
+}
+
+/* kort og bilder til relaterte produkter */
+
+.frame {
+    background-color: #d4d4d4;
+    display: flex;
+    padding-top: 20px;
+    width: 1500px;
+    gap: 20px;
+}
+div.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+div.gallery img {
+    width: 300px;
+    height: 250px;
+    border-radius: 5px ;
+}
+
+  div.desc {
+    padding: 15px;
+    text-align: center;
+    
+}
+  
+  * {
+    box-sizing: border-box;
+}
+  
+  .responsive {
+    float: left;
+    width: auto;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+@media (max-width: 426px) {
+    .frame {
+        width: auto;
+        flex-direction: column;
+    } 
+
+      .responsive {
+        
+        flex-direction: column;
+    } 
+
+}
+
+@media (max-width: 770px) {
+    .frame {
+        width: auto;
+        flex-direction: column;
+    } 
+
+      .responsive {
+        
+        flex-direction: column;
+    } 
+    
+}

@@ -1,0 +1,44 @@
+/* FOOTER */
+footer {
+    background-color: var(--footer);
+    color: var(--textWhite);
+    padding: 10px 20px;
+    text-align: left;
+  }
+  
+  .footer-btns {
+    display: flex;
+    margin-left: 35px;
+  }
+  /*Justerte litt på marginen til footer-btns  - Polly*/
+  
+  .footer-btn {
+    text-decoration: none;
+    color: var(--textWhite);
+    margin-right: 55px;
+  } 
+
+/*MQ mobile*/
+  @media (max-width: 600px) {
+    footer {
+        /* min-width: 20rem;
+        max-width: 26.625rem; */
+        width: 100vw;
+      }
+      
+      .footer-btns {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .footer-btn {
+        margin-top: 20px;
+      }
+  }
+
+  /* MQ - Tablet */
+@media screen and (max-width:768px) {
+    footer {
+        width: 100vw;
+      }
+}

@@ -1,0 +1,15 @@
+/*KOde hentet fra HANDLEKURV, kodet av Tony*/
+
+.customerPosition {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .positionArrow {
+    margin-top: 70px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }

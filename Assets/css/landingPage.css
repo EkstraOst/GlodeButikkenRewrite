@@ -1,0 +1,574 @@
+/*Styling i landingPage er kodet av Amalie, med litt småplukk kode fra Polly*/
+
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+/* Fargepallet - kodet av Tiril */
+:root {
+    /* LIGHT MODE */
+    /* Main colors */
+    --mainLightBackground: #f0fff0;
+    --mainOrange: #fb5607;
+    --dropMenu: #808080;
+    --textWhite: #ffffff;
+    --mainBlack: #222222;
+    --footer: #333333;
+    /* Produkt oversikt */
+    --cardBackground: #f2f2f2;
+    /* Produkt side */
+    --boxBackground: #d4d4d4;
+    --buttonShadow: 0 10px 20px -8px #000000;
+    /* Splash text shadow*/
+    --splashTextShadow: 0 0px 5px #FFF, 0 2px 10px #ff0, 0 10px 20px #ff8000, 0 18px 40px #F00;
+  }
+  
+  .LP_body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    width: 100vw;
+    overflow-x: hidden;
+    max-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--mainLightBackground);
+    transition: .4s;
+  }
+
+  /* La til kode for å få DarkMode til å fungere skikkelig på siden. -Tony */
+.dark-mode .feature .pLP {
+    background-color: #313131;
+    color: #f2f2f2;
+    margin-right: 25px;
+}
+
+.dark-mode .intro .genInfo .main_title .h2LP .h3LP .pLP {
+    background-color: #313131;
+    color: #f2f2f2;
+}
+
+/* .dark-mode .main_title .h2LP .h3LP .pLP .titleHeader .h3About .AboutH3 .aboutInfo .olOM {
+  color: honeydew;
+} */
+  
+  .landingMain {
+    border-bottom:2px solid var(--mainOrange);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-bottom: 80px;
+    /* width: 100vw; */
+    margin-bottom: 30px;
+    margin-top: 80px;
+  }
+  
+  /* MAIN */
+  .main_title {
+    font-size: 30px;
+    text-align: left;
+    margin-top: 60px;
+    border-bottom: 3px solid var(--mainOrange);
+    padding-left: 45px;
+  }
+  
+  /* SPLASH IMG */
+  .imgSplash {
+
+    /* background-position: center; */
+    /* margin-top: -18px; */
+    /*max-width: 100vw;
+    max-height: 70%;*/
+    width: 100vw;
+    /* height: 880px;  */
+    /* margin-top: 5px; */
+    /* margin-left: 5px; */
+    margin-bottom: 5rem;
+  }
+  
+  .splashPosition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* SLIDE TEXT animasjon */
+  .anim-1,
+  .anim-2,
+  .anim-3 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 12.5em;
+      width: 20%;
+      font-size: 20px;
+      animation-duration: 20s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      color: var(--mainBlack);
+      font-style: italic;
+      font-weight: bold;
+  }
+  
+  .anim-1 {
+      animation-name: anim-1-keyframes;
+      text-shadow: var(--splashTextShadow);
+  }
+  
+  .anim-2 {
+      animation-name: anim-2-keyframes;
+      text-shadow: var(--splashTextShadow);
+  }
+  
+  .anim-3 {
+      animation-name: anim-3-keyframes;
+      text-shadow: var(--splashTextShadow);
+  }
+  
+  @keyframes anim-1-keyframes {
+    0%, 8.3% { left: -100%; opacity: 1; }
+    8.3%, 25% { left: 5%; opacity: 1; }
+    33.33%, 100% { right: 110%; opacity: 0; }
+  }
+  
+  @keyframes anim-2-keyframes {
+    0%, 33.33% { left: -100%; opacity: 1; }
+    41.63%, 58.29% { left: 5%; opacity: 1; }
+    66.66%, 100% { right: 110%; opacity: 0; }
+  }
+  
+  @keyframes anim-3-keyframes {
+    0%, 66.66% { left: -100%; opacity: 1; }
+    74.96%, 91.62% { left: 5%; opacity: 1; }
+    100% { right: 110%; opacity: 0; }
+  }
+  
+  
+  /*Polly Code - prøver å fixe noe : Testing mode*/
+  .textImgPosition {
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 60px;
+  }
+  
+  .iTextWbtn {
+    display: flex;
+    flex-direction: column;
+    width: 60em;
+    margin-left: 50px;
+  }
+  
+  /*DESK IMG*/
+  .leftImg {
+    height: 330px;
+    width: 390px;
+    margin-right: 5em;
+    /* margin-top: -30px; */
+    margin-bottom: 10px;
+    border-bottom-right-radius: 15%;
+    border-top-left-radius: 15%;
+    }
+  
+  /*TEXT STYLING*/
+  /* .infoText {
+      margin-left: 2em;
+  } */
+  
+  .h2LP {
+      padding-top: 20px;
+      font-style: italic;
+      font-weight: lighter;
+      padding-left: 10px;
+      text-align: left;
+  }
+  
+  .h3LP {
+    font-style: italic;
+    font-weight: bold;
+    /* padding-left: 15px; */
+    text-align: left;
+  }
+  
+  .pLP {
+    font-style: italic;
+    /* padding-left: 15px; */
+    text-align: left;
+  }
+  
+  /* BUTTON */
+  .btnLP {
+      /* display: inline-block; */
+      position: relative;
+      border-radius: 25px;
+      background-color: var(--mainOrange);
+      border: none;
+      color:var(--textWhite);
+      text-align: center;
+      font-size: 26px;
+      padding: 16px;
+      width: 220px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin-top: 30px;
+      margin-bottom: 30px;;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 7);
+  }
+  
+  .btnLP:after {
+      content: ">>";
+      position: absolute;
+      opacity: 0;
+      transition: 0.5s;
+  }
+  
+  .btnLP:hover {
+     padding-right: 24px;
+     padding-left: 8px;
+  }
+  
+  .btnLP:hover:after {
+      opacity: 1;
+      right: 10px;
+  }
+  
+  .btnProduct {
+    color: var(--textWhite);
+  }
+  
+/*ABOUT - kodet av Trym og Amalie*/
+/*Videre styling er kodet av Amalie og Trym*/
+
+.aboutInfo {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.titleHeader {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    padding: 1rem;
+    color: #fb5607;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 0 0px 5px #FFF, 0 2px 10px #414833, 0 10px 20px #ff8000, 0 18px 50px #F00;
+    font-weight: bolder;
+}
+
+.intro {
+    margin:20px;
+    padding: 2rem;
+    background-color: #f2f2f2;
+    gap: 20px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.h2About {
+   margin-left: 30px;
+} 
+
+.h3About {
+    margin-right: 67px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.intro .h2About {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    gap: 20px;
+    
+}
+
+.genInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    margin-left: 40px;
+}
+
+.olOM {
+    margin-left: 40px;
+    list-style: none;
+}
+
+.features {
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    /* padding: 1.5rem; */
+}
+
+.AboutH3 {
+    text-align: center; 
+    font-style: italic
+}
+
+.feature {
+  flex-basis: 35%;
+  background-color: #b3af8f;
+  padding: 1rem;
+  text-align: center;
+  font-size: 4rem;
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+  line-height: 1.5;
+  list-style: none;
+    /* margin-right: 25px; */
+}
+
+.payImg {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+/* .payOption {
+  list-style: none;
+} */
+
+.imgVisa{
+  width: 165px;
+  height: 140px;
+  box-shadow: 1px 1px 10px #b3af8f;
+}
+
+.imgVipps{
+  margin-bottom: 2em;
+  width: 180px;
+  height: 85px;
+}
+
+.location {
+  width: 70%;
+  height: 60%;
+}
+
+/* .buttonAbout{
+    background-color: #ff6347;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 15px;
+    width: 170px;
+    border-radius: 25px;
+    font-size: 20px;
+} */
+
+/* .buttonAbout:hover{
+    animation: pulse 1s infinite;
+  transition: .3s;
+  background-color: #fb5607;;
+    
+} */
+
+
+/* @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(.9);
+    }
+      100% {
+      transform: scale(1);
+    }
+  }
+
+.buttonCenter {
+    align-items: center;
+    margin-left: 35%;
+}
+   */
+  
+  /*MEDIA QUERIES*/
+  /*MQ - Text animation*/
+  @media (max-width: 480px) {
+  .anim-1,
+  .anim-2,
+  .anim-3 {
+    font-size: 20px;
+    width: 88%;
+    top: 10.5em;
+    position: absolute;
+    color: var(--mainBlack);
+    text-shadow: var(--splashTextShadow);
+  }
+  }
+  
+  @media only screen and (min-width:482px) and (max-width:768px) {
+    .anim-1,
+    .anim-2,
+    .anim-3 {
+    font-size: 20px;
+    width: 40%;
+    top: 11.5em;
+    position: absolute;
+    color: var(--mainBlack);
+    text-shadow: var(--splashTextShadow);
+    }
+  }
+  
+  /*NOTE: Amalie I need help here >~< */
+  
+  /* MQ - MOBIL */
+  @media (max-width: 600px) {
+  
+    .textImgPosition {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      row-gap: 50px;
+    }
+  
+    .iTextWbtn {
+      display: flex;
+      flex-direction: column;
+      width: 20em;
+    }
+  
+    .imgSplash {
+      width: 400px;
+      height: 340px;
+      margin-right: 3%;
+    }
+  
+    .leftImg {
+      height: 340px;
+      width: 140px;
+      /* margin-left: 5%; */
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
+  
+  /*MQ - See products button*/
+  @media (max-width: 600px) {
+      .btnLP {
+          margin-left: 20%;
+      }
+    }
+  
+    /*MQ - HAMBURGER MENY */
+  @media screen and (max-width: 600px) {
+    /* .hamburgerMeny {
+      display: block;
+    }
+       Muligens slettes?? .-Polly*/
+
+  }
+  
+  /* MQ - Tablet */
+  @media screen and (max-width:768px) {
+    .iTextWbtn {
+      display: flex;
+      flex-direction: column;
+      width: 20em;
+      margin-left: 5px;
+    }
+  
+    .imgSplash {
+      max-width: 735px;
+      height: 300px;
+      margin-left:15px
+    }
+  
+    .leftImg {
+      height: 340px;
+      width: 350px;
+      /* margin-left: 5%; */
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  
+    /* .search-box {
+      margin-right: 10px;
+    }     Skal dette inn i styleNav?? -Polly*/
+  } 
+  
+  /* Skal vi ha til laptop og til større skjermer?*/
+  
+  /* MQ - Laptop */
+  @media only screen and (min-width: 992px) {
+  
+  .imgSplash {
+    width: 990px;
+    height: 520px; 
+    
+  }
+  
+  .leftImg {
+    height: 340px;
+    width: 350px;
+    /* margin-left: 660px; */
+  }
+  
+  }
+  
+  /* MQ - Large Laptop */
+  @media only screen and (min-width: 1200px) {
+  
+  .imgSplash {
+    width: 1480px;
+    height: 580px; 
+  }
+  
+  .leftImg {
+    height: 340px;
+    width: 350px;
+    /* margin-left: 1070px; */
+  }
+  } 
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .features {
+      flex-wrap: wrap;
+  }
+
+  .feature {
+      flex-basis: 45%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .features {
+      flex-wrap: wrap;
+  }
+
+  .feature {
+      flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .titleHeader {
+      font-size: 1.5rem;
+  }
+
+  .intro .h2About {
+      font-size: 1.2rem;
+  }
+
+  .feature .h3About {
+      font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .buttonAbout {
+      font-size: 0.9rem;
+  }
+}

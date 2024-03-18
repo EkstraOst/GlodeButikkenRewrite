@@ -1,0 +1,121 @@
+/* .miniplate{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    margin: 10px;
+    column-gap: 2px;
+} */
+
+.sectionmini{
+    margin-bottom: 5px; 
+    min-width: 25%; /*control's width of the card itself, can be adjusted to fit different products*/
+    max-width:35%; 
+    height: 9em; 
+    margin-bottom: 5px; 
+
+}
+
+.articlemini{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:  0 14px 28px rgba(31, 7, 247, 0.842), 0 10px 10px rgba(52, 9, 207, 0.87);
+    border: solid #fb5607 5px;
+    background-color: lightgray;
+    transition: .4s;
+}
+
+.articlemini:hover{
+    box-shadow: 0 14px 28px rgba(31, 7, 247, 0.842), 0 10px 10px rgba(52, 9, 207, 0.87); 
+    transform: translate(0px, -8px);
+}
+
+.imgmini{
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+}
+
+.slashInfo {
+    margin-left: 15px;
+}
+
+.addToCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 11%;
+    margin-bottom: 14%;
+    width: 60px;
+    height: 35px;
+    border: 0px none #fb5607;
+    border-radius: 15px;
+    background-color: #fb5607;
+    cursor: pointer;
+}
+
+.cartIcon {
+    width: 25px
+}
+
+.pmini {
+    font-size: 25px;
+    /* margin-left: -110px; */
+    /* margin-top: 80px; */
+}
+
+.h3mini {
+    font-size: 25px;
+    /* margin-top:-50px;
+    margin-left: -20px; */
+}
+
+@media (max-width: 425px) {
+    .miniplate {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        
+    }
+}
+
+
+@media (min-width: 426px) and (max-width: 1023px) {
+    .miniplate {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        
+    }
+}
+
+
+@media (min-width: 1439px) {
+    .miniplate {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        
+    }
+}
+
+/* Media query for adjusting width on smaller screens (max-width: 1000px) */
+@media (max-width: 1000px) {
+    .miniplate {
+        flex: 0 0 45%; /* Adjust flex properties for responsiveness */
+    }
+}
+
+/* Media query for full width on even smaller screens (max-width: 750px) */
+@media (max-width: 750px) {
+    .miniplate {
+        flex: 0 0 100%; /* Adjust flex properties for responsiveness */
+    }
+}
+
+/* Media query for adjusting width on larger screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+    .miniplate {
+        flex: 0 0 30%; /* Adjust flex properties for responsiveness */
+    }
+}
