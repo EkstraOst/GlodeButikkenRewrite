@@ -42,13 +42,11 @@ function antallVogn($con) {
 
 
 
-function printCard($name, $subline, $price, $id, $bilde, $inv, $asalg) {
+function printCard($on_sale, $name, $subline, $price, $id, $bilde, $inv, $asalg) {
     $templ = "Assets/templates/productcard_sale.html";
-    if ($asalg == 1) {
+    if ($on_sale != 1) {
         $templ = "Assets/templates/productcard.html";
-        echo $asalg;
     }
-    echo $asalg;
     $handle = fopen($templ, "r");
     if ($handle) {
         while (($line = fgets($handle)) !== false) {

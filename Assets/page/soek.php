@@ -31,4 +31,4 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
 //Gjennomfør søket og skriv ut template for hvert resultat
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
-while ($p = mysqli_fetch_assoc($result)) printCard($p['navn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['bilde'], $p['inventar'], $p['autosalg']);
+while ($p = mysqli_fetch_assoc($result)) printCard($p['on_sale'],$p['navn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['bilde'], $p['inventar'], $p['autosalg']);
