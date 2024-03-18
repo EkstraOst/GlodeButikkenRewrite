@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_FILES['pbilde']['error'] == UPLOAD_ERR_OK) {
                 $ext = pathinfo($_FILES['pbilde']['name'])['extension']; // get the extension of the file
                 if ($ext == "jpg" || $ext == "jpeg" || $ext == "png") {
-                    $fil = $upload_dir . "ProduktBilde_id" . $id . "." . $ext;
+                    $fil = "ProduktBilde_id" . $id . "." . $ext;
                     move_uploaded_file( $_FILES['pbilde']['tmp_name'], $fil);
                 } else {
                     //feil filtype
