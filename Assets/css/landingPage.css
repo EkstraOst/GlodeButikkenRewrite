@@ -21,6 +21,7 @@
     --buttonShadow: 0 10px 20px -8px #000000;
     /* Splash text shadow*/
     --splashTextShadow: 0 0px 5px #FFF, 0 2px 10px #ff0, 0 10px 20px #ff8000, 0 18px 40px #F00;
+    --textButton: #ffffff;
   }
   
   .LP_body {

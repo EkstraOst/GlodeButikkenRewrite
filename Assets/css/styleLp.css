@@ -1,23 +1,7 @@
 /*Styling i landingPage er kodet av Amalie, med litt småplukk kode fra Polly*/
 
 /* Fargepallet - kodet av Tiril */
-:root {
-  /* LIGHT MODE */
-  /* Main colors */
-  --mainLightBackground: #f0fff0;
-  --mainOrange: #fb5607;
-  --dropMenu: #808080;
-  --textWhite: #ffffff;
-  --mainBlack: #222222;
-  --footer: #333333;
-  /* Produkt oversikt */
-  --cardBackground: #f2f2f2;
-  /* Produkt side */
-  --boxBackground: #d4d4d4;
-  --buttonShadow: 0 10px 20px -8px #000000;
-  /* Splash text shadow*/
-  --splashTextShadow: 0 0px 5px #FFF, 0 2px 10px #ff0, 0 10px 20px #ff8000, 0 18px 40px #F00;
-}
+
 
 body {
     margin: 0;

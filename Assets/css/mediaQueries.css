@@ -8,22 +8,6 @@
     padding: 0;
 } */
 
-/* Fargepallet - kodet av Tiril */
-:root {
-    /* LIGHT MODE */
-    /* Main colors */
-    --mainLightBackground: #f0fff0;
-    --mainOrange: #fb5607;
-    --dropMenu: #808080;
-    --textWhite: #ffffff;
-    --mainBlack: #222222;
-    --footer: #333333;
-    /* Produkt oversikt */
-    --cardBackground: #f2f2f2;
-    /* Produkt side */
-    --boxBackground: #d4d4d4;
-    --buttonShadow: 0 10px 20px -8px #000000;
-  }
 
 /* Responsive Styles */
 @media screen and (max-width: 1200px) {
