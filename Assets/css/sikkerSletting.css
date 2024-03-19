@@ -1,0 +1,146 @@
+/*css for SikkerSletting siden -  kodet av Øystein*/
+/* Endring av teksten, - NØD*/
+
+/* Fargepallet - kodet av Tiril */
+:root {
+    /* LIGHT MODE */
+    /* Main colors */
+    --mainLightBackground: #f0fff0;
+    --mainOrange: #fb5607;
+    --dropMenu: #808080;
+    --textWhite: #ffffff;
+    --mainBlack: #222222;
+    --footer: #333333;
+    /* Produkt oversikt */
+    --cardBackground: #f2f2f2;
+    /* Produkt side */
+    --boxBackground: #d4d4d4;
+    --buttonShadow: 0 10px 20px -8px #000000;
+  }
+  
+  /*Videre på Øystein sin kode*/
+  .h1SS {
+      padding-top: 50px;
+      padding-bottom: 15px;
+      font-style: italic;
+      font-weight: lighter;
+      padding-left: 15px;
+  }
+  
+  .h3SS {
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+  
+  .pSS {
+    font-style: italic;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .bSS {
+    padding-left: 15px;
+    padding-bottom: 15px;
+  }
+  
+  /* Endring a bilder */
+  .imgSS {
+      margin-top: 30px;
+      /* width: 5 px;
+      height: 5 px; */
+      padding-left: 15px;
+  }
+  
+  .imgTwoSS {
+      max-width: 80%;
+      height: 180px;
+      padding-left: 15px;
+      margin-top: 40px;
+    }
+  
+    /*inskuddskode fra Polly*/
+    .textInfo {
+      margin-left:35px;
+      width:85%;
+      margin-top: 40px;
+    }
+  
+    .postionImgText {
+      display: flex;
+      flex-direction: row;
+      margin-top: 35px;
+  }
+  
+  .ssPrices {
+      margin-right: 300px;
+      /*I cheat, this needs to be fixed properly, but as a temporary fix it works - Polly*/
+  }
+  
+  .contact {
+      margin-bottom: 40px;
+      margin-left: 35px;
+  }
+  
+  /* .split {
+    display: flex;
+    flex-direction: row;
+    gap: 250px;
+  } */
+  
+  
+  /* Media queries, kodet av Amalie */
+ /* Mobil */
+ @media only screen
+ and (min-device-width : 320px) 
+ and (max-device-width : 426px) {
+
+   .postionImgText {
+       flex-direction: column;
+   }
+
+   .imgSS {
+       width: 105vw;
+       padding: 0;
+       margin-left: -10px;
+   }
+
+   .ssPrices {
+       text-align: center;
+       width: 315px;
+   }
+   
+ }
+ 
+ /* Media queria til Tablet */
+   
+ @media only screen
+ and (min-device-width : 481px) 
+ and (max-device-width : 768px) {
+
+   .ssPrices {
+       margin-right: 50px;
+       width: 65rem;
+   }
+
+   .imgSS {
+       width: 550vh;
+   } 
+ }
+
+ /* MQ til laptop */
+
+ @media only screen and (min-device-width : 769px) 
+ and (max-device-width : 1024px){
+   .ssPrices {
+       margin-right: 50px;
+       width: 65rem;
+       /*I cheat, this needs to be fixed properly, but as a temporary fix it works - Polly*/
+   }
+
+   .imgSS {
+       width: 550vh;
+   } 
+}
+ 
+  
