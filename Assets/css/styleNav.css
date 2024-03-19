@@ -51,12 +51,12 @@
   height: 35px;
   border-radius: 50%;
   transition: .4s;
-  content: url("Icons/moonWhite.png");
+  content: url("Assets/Icons/moonWhite.png");
 }
 
 .dark-mode .circle {
   transition: .4s;
-  content: url("Icons/sunWhite.png");
+  content: url("Assets/Icons/sunWhite.png");
   width: 40px;
   height: 40px;
 }
