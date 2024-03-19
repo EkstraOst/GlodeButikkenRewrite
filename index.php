@@ -50,7 +50,8 @@ include("Assets/templates/header.php");
 
 if      ($side == 2)  include('Assets/page/soek.php');  
 else if ($side == 3)  include('Assets/page/prod.php');  
-else if ($side == 4)  include('Assets/page/vogn.php');  
+else if ($side == 4)  include('Assets/page/vogn.php');
+else if ($side == 5)  include('Assets/page/slet.php');
 else                  include('Assets/page/hjem.php'); 
 
 include('Assets/templates/footer.php');

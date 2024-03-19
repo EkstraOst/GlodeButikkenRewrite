@@ -1,18 +1,7 @@
-§<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/templates/sikkersletting.css"/>
-    <title>Document</title>
-</head>
 
-
-<!--kodet av Øystein -->
-<body>
     <main>
         <!--Hentet fra Alverbutikken, NØD-->>
-        <section class="textInfo">
+        <section class="textInfoSS">
         <h1 class="h1SS">Gløde Data</h1>
         <p class="pSS">Vi kan tilby en pakkeløsning på henting av gammelt IT-utstyr enten for bedrift eller privat, vi driver med avfallshåndtering og ikke minst sikker sletting av alle typer lagringsmedier. 
             Du kan selvsagt levere enheter til sletting selv.</p>
@@ -26,13 +15,13 @@
             Gløde samler inn, sletter eller destruerer lagringsenheter enten i vår Intimus 8000 degausser (for eldre medier med magnetfelt) eller i vår nye Intimus FlashEx Schredder som maler opp enheten til små partikler som ikke er større enn 4 x 4 mm. 
             Vi kan også slette med software hvis det er aktuelt med gjenbruk av lagringsmediet.</p>
         </section>
-        <section class="postionImgText">
+        <section class="postionImgTextSS">
         <!-- mulig vi burde ha class name imgBox på diven, slik at det er lettere å dedikere direkte styling
         som fungere på div vs bilde? - mvh Polly-->
             <div class="imgSS">
                 <img class="imgTwoSS" src="/Assets/ssImg/sikker_sletting_1.jpg" alt="Sikker sletting">
             </div>
-            <div class="ssPrices">
+            <div class="ssPricesSS">
                 <h3 class="h3SS">Priser for sikker sletting:</h3>
                 <p class="pSS">1 til 10 enheter/disker</p><b class="bSS">150,- pr enhet</b>
                 <p class="pSS">11 til 50 enheter/disker</p><b class="bSS">125,- pr enhet</b>
@@ -45,10 +34,9 @@
         <section>
             
         </section>
-        <section class="contact">
+        <section class="contactSS">
             <p class="pSS"> Ta kontakt for bestilling eller om du ønsker mer informasjon:</p>
             <p class="pSS">Rune Myhr</p>
             <p class="pSS">E-Post: rune.myhr@glode.no</p>
         </section>
     </main>
-</body>
