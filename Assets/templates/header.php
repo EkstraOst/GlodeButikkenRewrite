@@ -70,10 +70,11 @@
 
       <!--Shopping cart button kodet av Amalie -->
       <button class="shoppingCartButton">
+        <div id="badge" class="badge"><?php echo $vogntall; ?></div>
         <a href="index.php?page=4">
-          <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main.png" alt="Handlevogn">
+          <img class="shoppingCart" src="Assets/Icons/shopping-cart_Main_hvit.png" alt="Handlevogn">
         </a>
-        <div id="badge"><?php echo $vogntall; ?></div>
+        
       </button>
     </div>
   </nav>

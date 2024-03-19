@@ -59,6 +59,8 @@
 } */
   
   .landingMain {
+    width: 97vw;
+    margin: 0px;
     border-bottom:2px solid var(--mainOrange);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -66,6 +68,7 @@
     /* width: 100vw; */
     margin-bottom: 30px;
     margin-top: 80px;
+    margin-left: -10px;
   }
   
   /* MAIN */
@@ -95,7 +98,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 98%;
   }
   
   /* SLIDE TEXT animasjon */
@@ -152,7 +155,7 @@
   
   /*Polly Code - prøver å fixe noe : Testing mode*/
   .textImgPosition {
-    /* width: 100vw; */
+    width: 95vw;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -163,8 +166,8 @@
   .iTextWbtn {
     display: flex;
     flex-direction: column;
-    width: 60em;
-    margin-left: 50px;
+    width: 75vw;
+    margin-left: 20px;
   }
   
   /*DESK IMG*/
@@ -248,9 +251,9 @@
 /*Videre styling er kodet av Amalie og Trym*/
 
 .aboutInfo {
-    max-width: 95vw;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 90vw;
+    /* margin-left: auto;
+    margin-right: auto; */
     margin-bottom: 50px;
 }
 

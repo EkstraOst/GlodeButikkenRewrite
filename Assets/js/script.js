@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const savedTheme = localStorage.getItem('theme');
   const body = document.body;
   const modeToggle = document.querySelector('.mode-toggle');
-  const circle = document.querySelector('.circle');
+  let circle = document.querySelector('.circle');
 
   if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
