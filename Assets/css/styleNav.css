@@ -55,7 +55,7 @@
 
 .dark-mode .circle {
   transition: .4s;
-  content: url("../Icons/sunWHite.png");
+  content: url("../Icons/sunWhite.png");
   width: 40px;
   height: 40px;
 }
