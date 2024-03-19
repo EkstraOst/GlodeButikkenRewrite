@@ -48,6 +48,11 @@
                   echo "  </ul>";
                   echo "</li>";
                 }
+		//hardkode sikker sletting
+		echo '<li class="more">';
+                  echo  '<span><a href="index.php?page=5">Sikker sletting</a>'; //TODO: fix link og GET koder for superkategori-søk
+                  echo  '</span>';
+                  echo  '</li>';
               }
 
 

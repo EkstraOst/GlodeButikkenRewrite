@@ -19,7 +19,7 @@
         <!-- mulig vi burde ha class name imgBox på diven, slik at det er lettere å dedikere direkte styling
         som fungere på div vs bilde? - mvh Polly-->
             <div class="imgSS">
-                <img class="imgTwoSS" src="/Assets/ssImg/sikker_sletting_1.jpg" alt="Sikker sletting">
+                <img class="imgTwoSS" src="Assets/img/sikker_sletting_1.jpg" alt="Sikker sletting">
             </div>
             <div class="ssPricesSS">
                 <h3 class="h3SS">Priser for sikker sletting:</h3>

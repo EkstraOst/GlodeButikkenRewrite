@@ -1,22 +1,5 @@
 /*css for SikkerSletting siden -  kodet av Øystein*/
 /* Endring av teksten, - NØD*/
-
-/* Fargepallet - kodet av Tiril */
-:root {
-    /* LIGHT MODE */
-    /* Main colors */
-    --mainLightBackground: #f0fff0;
-    --mainOrange: #fb5607;
-    --dropMenu: #808080;
-    --textWhite: #ffffff;
-    --mainBlack: #222222;
-    --footer: #333333;
-    /* Produkt oversikt */
-    --cardBackground: #f2f2f2;
-    /* Produkt side */
-    --boxBackground: #d4d4d4;
-    --buttonShadow: 0 10px 20px -8px #000000;
-  }
   
   /*Videre på Øystein sin kode*/
   .h1SS {
@@ -60,24 +43,24 @@
     }
   
     /*inskuddskode fra Polly*/
-    .textInfo {
+    .textInfoSS {
       margin-left:35px;
       width:85%;
       margin-top: 40px;
     }
   
-    .postionImgText {
+    .postionImgTextSS {
       display: flex;
       flex-direction: row;
       margin-top: 35px;
   }
   
-  .ssPrices {
+  .ssPricesSS {
       margin-right: 300px;
       /*I cheat, this needs to be fixed properly, but as a temporary fix it works - Polly*/
   }
   
-  .contact {
+  .contactSS {
       margin-bottom: 40px;
       margin-left: 35px;
   }
@@ -95,7 +78,7 @@
  and (min-device-width : 320px) 
  and (max-device-width : 426px) {
 
-   .postionImgText {
+   .postionImgTextSS {
        flex-direction: column;
    }
 
@@ -105,7 +88,7 @@
        margin-left: -10px;
    }
 
-   .ssPrices {
+   .ssPricesSS {
        text-align: center;
        width: 315px;
    }
@@ -118,7 +101,7 @@
  and (min-device-width : 481px) 
  and (max-device-width : 768px) {
 
-   .ssPrices {
+   .ssPricesSS {
        margin-right: 50px;
        width: 65rem;
    }
@@ -132,7 +115,7 @@
 
  @media only screen and (min-device-width : 769px) 
  and (max-device-width : 1024px){
-   .ssPrices {
+   .ssPricesSS {
        margin-right: 50px;
        width: 65rem;
        /*I cheat, this needs to be fixed properly, but as a temporary fix it works - Polly*/
