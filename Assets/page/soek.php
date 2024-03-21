@@ -1,4 +1,5 @@
 <?php
+print_r($_SESSION);
 if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $query = "SELECT * FROM fullprodukt_view";
     $stmt = mysqli_prepare($con, $query);
@@ -26,7 +27,6 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $tekst = $para;
     $tekst2 = $para;
     $tekst3 = $para;
-    print_r($_SESSION);
 }
 
 //Gjennomfør søket og skriv ut template for hvert resultat

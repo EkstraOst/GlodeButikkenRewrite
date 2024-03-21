@@ -56,3 +56,5 @@ else                  include('Assets/page/hjem.php');
 
 include('Assets/templates/footer.php');
 echo "</body></html>";
+
+

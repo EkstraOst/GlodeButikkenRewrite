@@ -97,7 +97,6 @@ function toggleMode() {
 const node = document.getElementById("searchbar");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-      alert(node.value);
       window.location.assign("index.php?page=2&type=3&param=" + node.value);
     }
 });
