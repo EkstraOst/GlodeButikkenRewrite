@@ -1,6 +1,4 @@
 <?php
-print_r($_SESSION);
-echo $side . " " . $type . " " . $para;
 if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $query = "SELECT * FROM produkt_view";
     $stmt = mysqli_prepare($con, $query);
