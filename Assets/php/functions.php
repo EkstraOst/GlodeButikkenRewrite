@@ -47,6 +47,7 @@ function printCard($on_sale, $name, $subline, $price, $id, $bilde, $inv, $asalg)
     if ($on_sale != 1) {
         $templ = "Assets/templates/productcard.html";
     }
+    echo $on_sale . " " . $name . " " . $inv;
     $handle = fopen($templ, "r");
     if ($handle) {
         while (($line = fgets($handle)) !== false) {
