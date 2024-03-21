@@ -25,7 +25,7 @@
 //SKRIV ORDRESKJEMA //TODO: SKAL ORDRELINJEN OPPDATERES? I så fall er $_GET TINGEN
 
 //Databasesøket for handlevogn-info.
-$query = "SELECT p.produktID as id, p.navn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
+$query = "SELECT p.produktID as id, p.navn as produktNavn, p.undertittel, p.info, p.bilde, p.inventar, p.autosalg, IFNULL(MIN(r.nypris), p.pris) as pris, t.antall, 
 IF(MIN(r.nypris) < p.pris, 1, 0) AS on_sale, (pris * antall) AS totalpris FROM PRODUKT p
 LEFT JOIN RABATT r 
 ON r.produktID = p.produktID
@@ -47,7 +47,7 @@ $result = mysqli_stmt_get_result($stmt); //alle resultatene lander her i $result
 
 $totalsum = 0;
 while ($p = mysqli_fetch_assoc($result)) { //hent ett og ett resultat til det er tomt - skriv ut produktkort med resultatet som html
-    printVognLinje($p['navn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
+    printVognLinje($p['produktNavn'], $p['undertittel'], $p['pris'], $p['id'], $p['antall'], $p['totalpris'], $p['on_sale'], $p['bilde']);
     $totalsum += $p['totalpris'];
 }
 ?>
