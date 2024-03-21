@@ -29,6 +29,9 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $tekst3 = $para;
 }
 
+
+
+
 //Gjennomfør søket og skriv ut template for hvert resultat
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
