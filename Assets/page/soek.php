@@ -34,6 +34,5 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 while ($p = mysqli_fetch_assoc($result)) {
-    print_r($p);
     printCard($p['on_sale'],$p['produktNavn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['bilde'], $p['inventar'], $p['autosalg']);
 }
