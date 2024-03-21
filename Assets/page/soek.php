@@ -26,6 +26,7 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $tekst = $para;
     $tekst2 = $para;
     $tekst3 = $para;
+    print_r($_SESSION);
 }
 
 //Gjennomfør søket og skriv ut template for hvert resultat
