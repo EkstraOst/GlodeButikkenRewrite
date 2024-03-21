@@ -20,8 +20,8 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $kat = $para;
 
 } else if ($type == 3) { //SØK ETTER TEKST (i navn, undertittel og info)
-    $query =   "SELECT * from fullprodukt_view f 
-    WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?";
+    $query =   'SELECT * FROM fullprodukt_view f 
+    WHERE f.navn REGEXP ? OR f.undertittel REGEXP ? OR f.info REGEXP ?';
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "ddd", $tekst, $tekst2, $tekst3);
     $tekst = $para;
