@@ -23,10 +23,10 @@ if ($type == 0) { //SØK ETTER ALLE PRODUKTER
 } else if ($type == 3) { //SØK ETTER TEKST (i navn, undertittel og info)
     $query =   'select * from fullprodukt_view where produktID IN (SELECT produktID from PRODUKT where navn regexp ? OR undertittel regexp ? OR info regexp ?)';
     $stmt = mysqli_prepare($con, $query);
-    mysqli_stmt_bind_param($stmt, "ddd", $tekst, $tekst2, $tekst3);
+    mysqli_stmt_bind_param($stmt, "ddd", $tekst, $tekst, $tekst);
     $tekst = $para;
-    $tekst2 = $para;
-    $tekst3 = $para;
+    $tekst = $para;
+    $tekst = $para;
 }
 
 
