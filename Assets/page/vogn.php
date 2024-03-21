@@ -19,7 +19,6 @@
             <h3 deleteText>Slett</h3>
         </div>
     </div>
-    <div class="shopItemsDiv">
 
 <?php
 //SKRIV ORDRESKJEMA //TODO: SKAL ORDRELINJEN OPPDATERES? I så fall er $_GET TINGEN
