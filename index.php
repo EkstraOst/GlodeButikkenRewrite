@@ -26,11 +26,12 @@ antallVogn($con); //last inn antall varer i handlevogn
 //som skal søkes etter.
 //EX:
 //"index.php?page=4" er handlevogn.
-//"index.php?page=3&para=2" er produktside (her vises produktet med id 2 (para))
+//"index.php?page=3&para=2" er produktside (her vises produktet med id 2)
 //"index.php?page=1" er landingpage
+//"index.pnp?page=2&type=3%para=duck" viser alle produkter som har "duck" i seg så søkesiden (page=2)
 if (!isset($_SESSION['page'])) { $_SESSION['page'] = 1; }
 if (!isset($_SESSION['type'])) { $_SESSION['type'] = 0; }
-if (!isset($_SESSION['para'])) { $_SESSION['para'] = ".*"; }
+if (!isset($_SESSION['para'])) { $_SESSION['para'] = " "; }
 $_SESSION['page'] = isset($_GET['page']) ? $_GET['page'] : $_SESSION['page'];
 $_SESSION['type'] = isset($_GET['type']) ? $_GET['type'] : $_SESSION['type'];
 $_SESSION['para'] = isset($_GET['para']) ? $_GET['para'] : $_SESSION['para'];

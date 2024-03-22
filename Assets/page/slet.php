@@ -1,4 +1,4 @@
-
+<body>
     <main>
         <!--Hentet fra Alverbutikken, NØD-->>
         <section class="textInfoSS">

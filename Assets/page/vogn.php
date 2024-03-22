@@ -1,4 +1,5 @@
 <!-- HMTL FØR ORDRESKJEMA -->
+<body>
 <main>
     <section class="customerPosition">
         <h2 class="positionText">Du er her: <a href="/index.html">Forside</a> <i class="positionArrow"></i>Handlekurv</h2>

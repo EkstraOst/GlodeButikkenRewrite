@@ -57,9 +57,7 @@
 
 
               ?>
-
-            </ul>
-          </li>
+          </ul>
           <li><a href="https://glode.no/glode/tilsette/">Ta Kontakt</a></li>
         </ul>
       </div>

@@ -1,3 +1,4 @@
+<body>
 <?php
 if ($type == 0) { //SØK ETTER ALLE PRODUKTER
     $query = "SELECT * FROM produkt_view";
@@ -36,3 +37,4 @@ $result = mysqli_stmt_get_result($stmt);
 while ($p = mysqli_fetch_assoc($result)) {
     printCard($p['on_sale'],$p['produktNavn'], $p['undertittel'], $p['pris'], $p['produktID'], $p['bilde'], $p['inventar'], $p['autosalg']);
 }
+?>
